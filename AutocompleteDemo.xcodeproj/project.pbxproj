@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E7E9795114389D2F00292AE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E9795014389D2F00292AE9 /* UIKit.framework */; };
+		E7E9795314389D2F00292AE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E9795214389D2F00292AE9 /* Foundation.framework */; };
+		E7E9795514389D2F00292AE9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E9795414389D2F00292AE9 /* CoreGraphics.framework */; };
+		E7E9795B14389D2F00292AE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7E9795914389D2F00292AE9 /* InfoPlist.strings */; };
+		E7E9795D14389D2F00292AE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E9795C14389D2F00292AE9 /* main.m */; };
+		E7E9796114389D2F00292AE9 /* AutocompleteDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E9796014389D2F00292AE9 /* AutocompleteDemoAppDelegate.m */; };
+		E7E9796414389D2F00292AE9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E9796214389D2F00292AE9 /* MainWindow.xib */; };
+		E7E9796714389D2F00292AE9 /* AutocompleteDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E9796614389D2F00292AE9 /* AutocompleteDemoViewController.m */; };
+		E7E9796A14389D2F00292AE9 /* AutocompleteDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E9796814389D2F00292AE9 /* AutocompleteDemoViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E7E9794C14389D2F00292AE9 /* AutocompleteDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutocompleteDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E9795014389D2F00292AE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E7E9795214389D2F00292AE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E7E9795414389D2F00292AE9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E7E9795814389D2F00292AE9 /* AutocompleteDemo-Info.plist */ = {isa = PBXFileReference; path = "AutocompleteDemo-Info.plist"; sourceTree = "<group>"; };
+		E7E9795A14389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7E9795C14389D2F00292AE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E7E9795E14389D2F00292AE9 /* AutocompleteDemo-Prefix.pch */ = {isa = PBXFileReference; path = "AutocompleteDemo-Prefix.pch"; sourceTree = "<group>"; };
+		E7E9795F14389D2F00292AE9 /* AutocompleteDemoAppDelegate.h */ = {isa = PBXFileReference; path = AutocompleteDemoAppDelegate.h; sourceTree = "<group>"; };
+		E7E9796014389D2F00292AE9 /* AutocompleteDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutocompleteDemoAppDelegate.m; sourceTree = "<group>"; };
+		E7E9796314389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		E7E9796514389D2F00292AE9 /* AutocompleteDemoViewController.h */ = {isa = PBXFileReference; path = AutocompleteDemoViewController.h; sourceTree = "<group>"; };
+		E7E9796614389D2F00292AE9 /* AutocompleteDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutocompleteDemoViewController.m; sourceTree = "<group>"; };
+		E7E9796914389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AutocompleteDemoViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7E9794914389D2F00292AE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7E9795114389D2F00292AE9 /* UIKit.framework in Frameworks */,
+				E7E9795314389D2F00292AE9 /* Foundation.framework in Frameworks */,
+				E7E9795514389D2F00292AE9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7E9794114389D2F00292AE9 = {
+			isa = PBXGroup;
+			children = (
+				E7E9795614389D2F00292AE9 /* AutocompleteDemo */,
+				E7E9794F14389D2F00292AE9 /* Frameworks */,
+				E7E9794D14389D2F00292AE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7E9794D14389D2F00292AE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7E9794C14389D2F00292AE9 /* AutocompleteDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7E9794F14389D2F00292AE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7E9795014389D2F00292AE9 /* UIKit.framework */,
+				E7E9795214389D2F00292AE9 /* Foundation.framework */,
+				E7E9795414389D2F00292AE9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7E9795614389D2F00292AE9 /* AutocompleteDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E7E9795F14389D2F00292AE9 /* AutocompleteDemoAppDelegate.h */,
+				E7E9796014389D2F00292AE9 /* AutocompleteDemoAppDelegate.m */,
+				E7E9796214389D2F00292AE9 /* MainWindow.xib */,
+				E7E9796514389D2F00292AE9 /* AutocompleteDemoViewController.h */,
+				E7E9796614389D2F00292AE9 /* AutocompleteDemoViewController.m */,
+				E7E9796814389D2F00292AE9 /* AutocompleteDemoViewController.xib */,
+				E7E9795714389D2F00292AE9 /* Supporting Files */,
+			);
+			path = AutocompleteDemo;
+			sourceTree = "<group>";
+		};
+		E7E9795714389D2F00292AE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7E9795814389D2F00292AE9 /* AutocompleteDemo-Info.plist */,
+				E7E9795914389D2F00292AE9 /* InfoPlist.strings */,
+				E7E9795C14389D2F00292AE9 /* main.m */,
+				E7E9795E14389D2F00292AE9 /* AutocompleteDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7E9794B14389D2F00292AE9 /* AutocompleteDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7E9796D14389D2F00292AE9 /* Build configuration list for PBXNativeTarget "AutocompleteDemo" */;
+			buildPhases = (
+				E7E9794814389D2F00292AE9 /* Sources */,
+				E7E9794914389D2F00292AE9 /* Frameworks */,
+				E7E9794A14389D2F00292AE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutocompleteDemo;
+			productName = AutocompleteDemo;
+			productReference = E7E9794C14389D2F00292AE9 /* AutocompleteDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7E9794314389D2F00292AE9 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = E7E9794614389D2F00292AE9 /* Build configuration list for PBXProject "AutocompleteDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E7E9794114389D2F00292AE9;
+			productRefGroup = E7E9794D14389D2F00292AE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7E9794B14389D2F00292AE9 /* AutocompleteDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7E9794A14389D2F00292AE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7E9795B14389D2F00292AE9 /* InfoPlist.strings in Resources */,
+				E7E9796414389D2F00292AE9 /* MainWindow.xib in Resources */,
+				E7E9796A14389D2F00292AE9 /* AutocompleteDemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7E9794814389D2F00292AE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7E9795D14389D2F00292AE9 /* main.m in Sources */,
+				E7E9796114389D2F00292AE9 /* AutocompleteDemoAppDelegate.m in Sources */,
+				E7E9796714389D2F00292AE9 /* AutocompleteDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E7E9795914389D2F00292AE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7E9795A14389D2F00292AE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E7E9796214389D2F00292AE9 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7E9796314389D2F00292AE9 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		E7E9796814389D2F00292AE9 /* AutocompleteDemoViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7E9796914389D2F00292AE9 /* en */,
+			);
+			name = AutocompleteDemoViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7E9796B14389D2F00292AE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E7E9796C14389D2F00292AE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7E9796E14389D2F00292AE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutocompleteDemo/AutocompleteDemo-Prefix.pch";
+				INFOPLIST_FILE = "AutocompleteDemo/AutocompleteDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E7E9796F14389D2F00292AE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AutocompleteDemo/AutocompleteDemo-Prefix.pch";
+				INFOPLIST_FILE = "AutocompleteDemo/AutocompleteDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7E9794614389D2F00292AE9 /* Build configuration list for PBXProject "AutocompleteDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7E9796B14389D2F00292AE9 /* Debug */,
+				E7E9796C14389D2F00292AE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7E9796D14389D2F00292AE9 /* Build configuration list for PBXNativeTarget "AutocompleteDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7E9796E14389D2F00292AE9 /* Debug */,
+				E7E9796F14389D2F00292AE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E7E9794314389D2F00292AE9 /* Project object */;
+}
