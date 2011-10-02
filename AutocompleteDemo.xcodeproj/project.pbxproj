@@ -16,6 +16,7 @@
 		E7E9796414389D2F00292AE9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E9796214389D2F00292AE9 /* MainWindow.xib */; };
 		E7E9796714389D2F00292AE9 /* AutocompleteDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E9796614389D2F00292AE9 /* AutocompleteDemoViewController.m */; };
 		E7E9796A14389D2F00292AE9 /* AutocompleteDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E9796814389D2F00292AE9 /* AutocompleteDemoViewController.xib */; };
+		E7E9797714389D6600292AE9 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E9797614389D6600292AE9 /* DOAutocompleteTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +24,18 @@
 		E7E9795014389D2F00292AE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7E9795214389D2F00292AE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7E9795414389D2F00292AE9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E7E9795814389D2F00292AE9 /* AutocompleteDemo-Info.plist */ = {isa = PBXFileReference; path = "AutocompleteDemo-Info.plist"; sourceTree = "<group>"; };
+		E7E9795814389D2F00292AE9 /* AutocompleteDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutocompleteDemo-Info.plist"; sourceTree = "<group>"; };
 		E7E9795A14389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7E9795C14389D2F00292AE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E7E9795E14389D2F00292AE9 /* AutocompleteDemo-Prefix.pch */ = {isa = PBXFileReference; path = "AutocompleteDemo-Prefix.pch"; sourceTree = "<group>"; };
-		E7E9795F14389D2F00292AE9 /* AutocompleteDemoAppDelegate.h */ = {isa = PBXFileReference; path = AutocompleteDemoAppDelegate.h; sourceTree = "<group>"; };
+		E7E9795E14389D2F00292AE9 /* AutocompleteDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AutocompleteDemo-Prefix.pch"; sourceTree = "<group>"; };
+		E7E9795F14389D2F00292AE9 /* AutocompleteDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutocompleteDemoAppDelegate.h; sourceTree = "<group>"; };
 		E7E9796014389D2F00292AE9 /* AutocompleteDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutocompleteDemoAppDelegate.m; sourceTree = "<group>"; };
 		E7E9796314389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		E7E9796514389D2F00292AE9 /* AutocompleteDemoViewController.h */ = {isa = PBXFileReference; path = AutocompleteDemoViewController.h; sourceTree = "<group>"; };
+		E7E9796514389D2F00292AE9 /* AutocompleteDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutocompleteDemoViewController.h; sourceTree = "<group>"; };
 		E7E9796614389D2F00292AE9 /* AutocompleteDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutocompleteDemoViewController.m; sourceTree = "<group>"; };
 		E7E9796914389D2F00292AE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AutocompleteDemoViewController.xib; sourceTree = "<group>"; };
+		E7E9797514389D6600292AE9 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
+		E7E9797614389D6600292AE9 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOAutocompleteTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		E7E9795614389D2F00292AE9 /* AutocompleteDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E7E9797414389D6600292AE9 /* DOAutocompleteTextField */,
 				E7E9795F14389D2F00292AE9 /* AutocompleteDemoAppDelegate.h */,
 				E7E9796014389D2F00292AE9 /* AutocompleteDemoAppDelegate.m */,
 				E7E9796214389D2F00292AE9 /* MainWindow.xib */,
@@ -100,6 +104,15 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		E7E9797414389D6600292AE9 /* DOAutocompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				E7E9797514389D6600292AE9 /* DOAutocompleteTextField.h */,
+				E7E9797614389D6600292AE9 /* DOAutocompleteTextField.m */,
+			);
+			path = DOAutocompleteTextField;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -164,6 +177,7 @@
 				E7E9795D14389D2F00292AE9 /* main.m in Sources */,
 				E7E9796114389D2F00292AE9 /* AutocompleteDemoAppDelegate.m in Sources */,
 				E7E9796714389D2F00292AE9 /* AutocompleteDemoViewController.m in Sources */,
+				E7E9797714389D6600292AE9 /* DOAutocompleteTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

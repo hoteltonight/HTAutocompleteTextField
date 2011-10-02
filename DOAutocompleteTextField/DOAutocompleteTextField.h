@@ -28,23 +28,23 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "DOAutocompleteTextField.h"
 
-@interface AutocompleteDemoViewController : UIViewController <DOAutocompleteTextFieldDelegate>
+@class  DOAutocompleteTextField;
+
+@protocol DOAutocompleteTextFieldDelegate <UITextFieldDelegate>
+
+- (NSString*)textField:(DOAutocompleteTextField*)textField completionForPrefix:(NSString*)prefix;
+
+@end
+
+@interface DOAutocompleteTextField : UITextField
 {
-    DOAutocompleteTextField *textField1;
-    DOAutocompleteTextField *textField2;
-    DOAutocompleteTextField *textField3;
-    DOAutocompleteTextField *textField4;
-    DOAutocompleteTextField *textField5;
-    DOAutocompleteTextField *textField6;
+    UILabel *_autocompleteLabel;
+    NSString *_autoCompleteString;
 }
 
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField6;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField5;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField4;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField3;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField2;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField1;
+- (CGRect)autocompleteRectForBounds:(CGRect)bounds;
+- (void)setAutocompleteTextColor:(UIColor*)color;
+- (UIColor*)autocompleteTextColor;
 
 @end
