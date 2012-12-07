@@ -71,8 +71,10 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self];
+#if !__has_feature(objc_arc)
     [_autocompleteLabel release];
     [super dealloc];
+#endif
 }
 
 - (BOOL)becomeFirstResponder
