@@ -1,0 +1,11 @@
+.svn
+.idea
+*.pyc
+.project
+.classpath
+*.mode1v3
+*.pbxuser
+*.DS_Store
+*~
+*.swp
+xcuserdata
