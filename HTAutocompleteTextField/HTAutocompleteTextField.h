@@ -28,23 +28,30 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "DOAutocompleteTextField.h"
+#import "HTDelegateProxy.h"
 
-@interface AutocompleteDemoViewController : UIViewController <DOAutocompleteTextFieldDelegate>
-{
-    DOAutocompleteTextField *textField1;
-    DOAutocompleteTextField *textField2;
-    DOAutocompleteTextField *textField3;
-    DOAutocompleteTextField *textField4;
-    DOAutocompleteTextField *textField5;
-    DOAutocompleteTextField *textField6;
-}
+@class  HTAutocompleteTextField;
 
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField6;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField5;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField4;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField3;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField2;
-@property (nonatomic, retain) IBOutlet DOAutocompleteTextField *textField1;
+@protocol HTAutocompleteDataSource <UITextFieldDelegate>
+
+- (NSString*)textField:(HTAutocompleteTextField*)textField completionForPrefix:(NSString*)prefix;
+
+@end
+
+@interface HTAutocompleteTextField : UITextField <UITextFieldDelegate>
+
+@property (nonatomic, strong) NSString *autocompleteString;
+@property (nonatomic, strong) UIColor *autocompleteTextColor;
+@property (nonatomic, assign) NSUInteger autocompleteType;
+@property (nonatomic, assign) BOOL autocompleteDisabled;
+
+// autocompleteDataSource takes precedence over the GlobalDataSource setting
+@property (nonatomic, assign) id autocompleteDataSource;
+
+- (void)setDelegates:(NSArray *)delegates;
+- (void)commitAutocompleteText;
+
+// DefaultDataSource will be overridden if autocompleteDataSource is set
++ (void)setDefaultAutocompleteDataSource:(id)dataSource;
 
 @end
