@@ -7,124 +7,145 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D3711B216719316002E78C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3711B116719316002E78C2 /* UIKit.framework */; };
-		8D3711B416719316002E78C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3711B316719316002E78C2 /* Foundation.framework */; };
-		8D3711B616719316002E78C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3711B516719316002E78C2 /* CoreGraphics.framework */; };
-		8D3711BC16719316002E78C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D3711BA16719316002E78C2 /* InfoPlist.strings */; };
-		8D3711BE16719316002E78C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3711BD16719316002E78C2 /* main.m */; };
-		8D3711C216719316002E78C2 /* HTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3711C116719316002E78C2 /* HTAppDelegate.m */; };
-		8D3711C416719316002E78C2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3711C316719316002E78C2 /* Default.png */; };
-		8D3711C616719316002E78C2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3711C516719316002E78C2 /* Default@2x.png */; };
-		8D3711C816719316002E78C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3711C716719316002E78C2 /* Default-568h@2x.png */; };
-		8D3711CB16719316002E78C2 /* HTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3711CA16719316002E78C2 /* HTViewController.m */; };
-		8D3711CE16719316002E78C2 /* HTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3711CC16719316002E78C2 /* HTViewController.xib */; };
-		8DF68827167F327C008E383C /* HTTextFieldAutocompletionExample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DF68826167F327C008E383C /* HTTextFieldAutocompletionExample-Info.plist */; };
-		BD74BF1E418347E5ADF6C60F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC9E9AD74F545B0A59B380E /* libPods.a */; };
+		6F30794FC159454F8E0FF41A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541886FBCF924E768C27BA1C /* libPods.a */; };
+		8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A804168B7C610025E16D /* UIKit.framework */; };
+		8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A806168B7C610025E16D /* Foundation.framework */; };
+		8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A808168B7C610025E16D /* CoreGraphics.framework */; };
+		8DF4A80F168B7C610025E16D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A80D168B7C610025E16D /* InfoPlist.strings */; };
+		8DF4A811168B7C610025E16D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A810168B7C610025E16D /* main.m */; };
+		8DF4A815168B7C610025E16D /* HTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A814168B7C610025E16D /* HTAppDelegate.m */; };
+		8DF4A817168B7C610025E16D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A816168B7C610025E16D /* Default.png */; };
+		8DF4A819168B7C610025E16D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A818168B7C610025E16D /* Default@2x.png */; };
+		8DF4A81B168B7C610025E16D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A81A168B7C610025E16D /* Default-568h@2x.png */; };
+		8DF4A81E168B7C610025E16D /* HTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A81D168B7C610025E16D /* HTViewController.m */; };
+		8DF4A821168B7C610025E16D /* HTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A81F168B7C610025E16D /* HTViewController.xib */; };
+		8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */; };
+		8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A83F168B7F280025E16D /* ht-logo-black.png */; };
+		8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2EC9E9AD74F545B0A59B380E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D3711AD16719316002E78C2 /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D3711B116719316002E78C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8D3711B316719316002E78C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8D3711B516719316002E78C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8D3711BB16719316002E78C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8D3711BD16719316002E78C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8D3711BF16719316002E78C2 /* HTTextFieldAutocompletionExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTTextFieldAutocompletionExample-Prefix.pch"; sourceTree = "<group>"; };
-		8D3711C016719316002E78C2 /* HTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTAppDelegate.h; sourceTree = "<group>"; };
-		8D3711C116719316002E78C2 /* HTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTAppDelegate.m; sourceTree = "<group>"; };
-		8D3711C316719316002E78C2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8D3711C516719316002E78C2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8D3711C716719316002E78C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8D3711C916719316002E78C2 /* HTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTViewController.h; sourceTree = "<group>"; };
-		8D3711CA16719316002E78C2 /* HTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTViewController.m; sourceTree = "<group>"; };
-		8D3711CD16719316002E78C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HTViewController.xib; sourceTree = "<group>"; };
-		8DF68826167F327C008E383C /* HTTextFieldAutocompletionExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HTTextFieldAutocompletionExample-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FD2BD587D18C4EFEBB9C0341 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		541886FBCF924E768C27BA1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF4A804168B7C610025E16D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8DF4A806168B7C610025E16D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DF4A808168B7C610025E16D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8DF4A80C168B7C610025E16D /* HTTextFieldAutocompletionExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HTTextFieldAutocompletionExample-Info.plist"; sourceTree = "<group>"; };
+		8DF4A80E168B7C610025E16D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DF4A810168B7C610025E16D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8DF4A812168B7C610025E16D /* HTTextFieldAutocompletionExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTTextFieldAutocompletionExample-Prefix.pch"; sourceTree = "<group>"; };
+		8DF4A813168B7C610025E16D /* HTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTAppDelegate.h; sourceTree = "<group>"; };
+		8DF4A814168B7C610025E16D /* HTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTAppDelegate.m; sourceTree = "<group>"; };
+		8DF4A816168B7C610025E16D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8DF4A818168B7C610025E16D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8DF4A81A168B7C610025E16D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8DF4A81C168B7C610025E16D /* HTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTViewController.h; sourceTree = "<group>"; };
+		8DF4A81D168B7C610025E16D /* HTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTViewController.m; sourceTree = "<group>"; };
+		8DF4A820168B7C610025E16D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HTViewController.xib; sourceTree = "<group>"; };
+		8DF4A83C168B7D4E0025E16D /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = ../../HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteTextField.m; path = ../../HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		8DF4A83F168B7F280025E16D /* ht-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ht-logo-black.png"; path = "../../ht-logo-black.png"; sourceTree = "<group>"; };
+		8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteManager.h; sourceTree = "<group>"; };
+		8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8D3711AA16719316002E78C2 /* Frameworks */ = {
+		8DF4A7FD168B7C610025E16D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3711B216719316002E78C2 /* UIKit.framework in Frameworks */,
-				8D3711B416719316002E78C2 /* Foundation.framework in Frameworks */,
-				8D3711B616719316002E78C2 /* CoreGraphics.framework in Frameworks */,
-				BD74BF1E418347E5ADF6C60F /* libPods.a in Frameworks */,
+				8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */,
+				8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */,
+				8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */,
+				6F30794FC159454F8E0FF41A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8D3711A216719316002E78C2 = {
+		8DF4A7F5168B7C610025E16D = {
 			isa = PBXGroup;
 			children = (
-				8D3711B716719316002E78C2 /* HTTextFieldAutocompletionExample */,
-				8D3711B016719316002E78C2 /* Frameworks */,
-				8D3711AE16719316002E78C2 /* Products */,
-				FD2BD587D18C4EFEBB9C0341 /* Pods.xcconfig */,
+				8DF4A83A168B7CFC0025E16D /* Core */,
+				8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */,
+				8DF4A803168B7C610025E16D /* Frameworks */,
+				8DF4A801168B7C610025E16D /* Products */,
+				3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
-		8D3711AE16719316002E78C2 /* Products */ = {
+		8DF4A801168B7C610025E16D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D3711AD16719316002E78C2 /* HTTextFieldAutocompletionExample.app */,
+				8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D3711B016719316002E78C2 /* Frameworks */ = {
+		8DF4A803168B7C610025E16D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D3711B116719316002E78C2 /* UIKit.framework */,
-				8D3711B316719316002E78C2 /* Foundation.framework */,
-				8D3711B516719316002E78C2 /* CoreGraphics.framework */,
-				2EC9E9AD74F545B0A59B380E /* libPods.a */,
+				8DF4A804168B7C610025E16D /* UIKit.framework */,
+				8DF4A806168B7C610025E16D /* Foundation.framework */,
+				8DF4A808168B7C610025E16D /* CoreGraphics.framework */,
+				541886FBCF924E768C27BA1C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8D3711B716719316002E78C2 /* HTTextFieldAutocompletionExample */ = {
+		8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */ = {
 			isa = PBXGroup;
 			children = (
-				8D3711C016719316002E78C2 /* HTAppDelegate.h */,
-				8D3711C116719316002E78C2 /* HTAppDelegate.m */,
-				8D3711C916719316002E78C2 /* HTViewController.h */,
-				8D3711CA16719316002E78C2 /* HTViewController.m */,
-				8D3711CC16719316002E78C2 /* HTViewController.xib */,
-				8D3711B816719316002E78C2 /* Supporting Files */,
+				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
+				8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */,
+				8DF4A83F168B7F280025E16D /* ht-logo-black.png */,
+				8DF4A813168B7C610025E16D /* HTAppDelegate.h */,
+				8DF4A814168B7C610025E16D /* HTAppDelegate.m */,
+				8DF4A81C168B7C610025E16D /* HTViewController.h */,
+				8DF4A81D168B7C610025E16D /* HTViewController.m */,
+				8DF4A81F168B7C610025E16D /* HTViewController.xib */,
+				8DF4A80B168B7C610025E16D /* Supporting Files */,
 			);
 			path = HTTextFieldAutocompletionExample;
 			sourceTree = "<group>";
 		};
-		8D3711B816719316002E78C2 /* Supporting Files */ = {
+		8DF4A80B168B7C610025E16D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8DF68826167F327C008E383C /* HTTextFieldAutocompletionExample-Info.plist */,
-				8D3711BA16719316002E78C2 /* InfoPlist.strings */,
-				8D3711BD16719316002E78C2 /* main.m */,
-				8D3711BF16719316002E78C2 /* HTTextFieldAutocompletionExample-Prefix.pch */,
-				8D3711C316719316002E78C2 /* Default.png */,
-				8D3711C516719316002E78C2 /* Default@2x.png */,
-				8D3711C716719316002E78C2 /* Default-568h@2x.png */,
+				8DF4A80C168B7C610025E16D /* HTTextFieldAutocompletionExample-Info.plist */,
+				8DF4A80D168B7C610025E16D /* InfoPlist.strings */,
+				8DF4A810168B7C610025E16D /* main.m */,
+				8DF4A812168B7C610025E16D /* HTTextFieldAutocompletionExample-Prefix.pch */,
+				8DF4A816168B7C610025E16D /* Default.png */,
+				8DF4A818168B7C610025E16D /* Default@2x.png */,
+				8DF4A81A168B7C610025E16D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DF4A83A168B7CFC0025E16D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8DF4A83C168B7D4E0025E16D /* HTAutocompleteTextField.h */,
+				8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */,
+			);
+			name = Core;
+			path = HTTextFieldAutocompletionExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D3711AC16719316002E78C2 /* HTTextFieldAutocompletionExample */ = {
+		8DF4A7FF168B7C610025E16D /* HTTextFieldAutocompletionExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D3711D116719316002E78C2 /* Build configuration list for PBXNativeTarget "HTTextFieldAutocompletionExample" */;
+			buildConfigurationList = 8DF4A827168B7C610025E16D /* Build configuration list for PBXNativeTarget "HTTextFieldAutocompletionExample" */;
 			buildPhases = (
-				8D3711A916719316002E78C2 /* Sources */,
-				8D3711AA16719316002E78C2 /* Frameworks */,
-				8D3711AB16719316002E78C2 /* Resources */,
-				753835CC63F54503B53E796D /* Copy Pods Resources */,
+				8DF4A7FC168B7C610025E16D /* Sources */,
+				8DF4A7FD168B7C610025E16D /* Frameworks */,
+				8DF4A7FE168B7C610025E16D /* Resources */,
+				AFDFE8FFD6D144A2908B6C3C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,54 +153,54 @@
 			);
 			name = HTTextFieldAutocompletionExample;
 			productName = HTTextFieldAutocompletionExample;
-			productReference = 8D3711AD16719316002E78C2 /* HTTextFieldAutocompletionExample.app */;
+			productReference = 8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8D3711A416719316002E78C2 /* Project object */ = {
+		8DF4A7F7168B7C610025E16D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HT;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Hotel Tonight";
 			};
-			buildConfigurationList = 8D3711A716719316002E78C2 /* Build configuration list for PBXProject "HTTextFieldAutocompletionExample" */;
+			buildConfigurationList = 8DF4A7FA168B7C610025E16D /* Build configuration list for PBXProject "HTTextFieldAutocompletionExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 8D3711A216719316002E78C2;
-			productRefGroup = 8D3711AE16719316002E78C2 /* Products */;
+			mainGroup = 8DF4A7F5168B7C610025E16D;
+			productRefGroup = 8DF4A801168B7C610025E16D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D3711AC16719316002E78C2 /* HTTextFieldAutocompletionExample */,
+				8DF4A7FF168B7C610025E16D /* HTTextFieldAutocompletionExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8D3711AB16719316002E78C2 /* Resources */ = {
+		8DF4A7FE168B7C610025E16D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3711BC16719316002E78C2 /* InfoPlist.strings in Resources */,
-				8D3711C416719316002E78C2 /* Default.png in Resources */,
-				8D3711C616719316002E78C2 /* Default@2x.png in Resources */,
-				8D3711C816719316002E78C2 /* Default-568h@2x.png in Resources */,
-				8D3711CE16719316002E78C2 /* HTViewController.xib in Resources */,
-				8DF68827167F327C008E383C /* HTTextFieldAutocompletionExample-Info.plist in Resources */,
+				8DF4A80F168B7C610025E16D /* InfoPlist.strings in Resources */,
+				8DF4A817168B7C610025E16D /* Default.png in Resources */,
+				8DF4A819168B7C610025E16D /* Default@2x.png in Resources */,
+				8DF4A81B168B7C610025E16D /* Default-568h@2x.png in Resources */,
+				8DF4A821168B7C610025E16D /* HTViewController.xib in Resources */,
+				8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		753835CC63F54503B53E796D /* Copy Pods Resources */ = {
+		AFDFE8FFD6D144A2908B6C3C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,31 +217,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8D3711A916719316002E78C2 /* Sources */ = {
+		8DF4A7FC168B7C610025E16D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3711BE16719316002E78C2 /* main.m in Sources */,
-				8D3711C216719316002E78C2 /* HTAppDelegate.m in Sources */,
-				8D3711CB16719316002E78C2 /* HTViewController.m in Sources */,
+				8DF4A811168B7C610025E16D /* main.m in Sources */,
+				8DF4A815168B7C610025E16D /* HTAppDelegate.m in Sources */,
+				8DF4A81E168B7C610025E16D /* HTViewController.m in Sources */,
+				8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */,
+				8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8D3711BA16719316002E78C2 /* InfoPlist.strings */ = {
+		8DF4A80D168B7C610025E16D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8D3711BB16719316002E78C2 /* en */,
+				8DF4A80E168B7C610025E16D /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		8D3711CC16719316002E78C2 /* HTViewController.xib */ = {
+		8DF4A81F168B7C610025E16D /* HTViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8D3711CD16719316002E78C2 /* en */,
+				8DF4A820168B7C610025E16D /* en */,
 			);
 			name = HTViewController.xib;
 			sourceTree = "<group>";
@@ -228,7 +251,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8D3711CF16719316002E78C2 /* Debug */ = {
+		8DF4A825168B7C610025E16D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,10 +276,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		8D3711D016719316002E78C2 /* Release */ = {
+		8DF4A826168B7C610025E16D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,29 +298,32 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8D3711D216719316002E78C2 /* Debug */ = {
+		8DF4A828168B7C610025E16D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD2BD587D18C4EFEBB9C0341 /* Pods.xcconfig */;
+			baseConfigurationReference = 3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";
 				INFOPLIST_FILE = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		8D3711D316719316002E78C2 /* Release */ = {
+		8DF4A829168B7C610025E16D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD2BD587D18C4EFEBB9C0341 /* Pods.xcconfig */;
+			baseConfigurationReference = 3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";
 				INFOPLIST_FILE = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -305,25 +332,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D3711A716719316002E78C2 /* Build configuration list for PBXProject "HTTextFieldAutocompletionExample" */ = {
+		8DF4A7FA168B7C610025E16D /* Build configuration list for PBXProject "HTTextFieldAutocompletionExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D3711CF16719316002E78C2 /* Debug */,
-				8D3711D016719316002E78C2 /* Release */,
+				8DF4A825168B7C610025E16D /* Debug */,
+				8DF4A826168B7C610025E16D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8D3711D116719316002E78C2 /* Build configuration list for PBXNativeTarget "HTTextFieldAutocompletionExample" */ = {
+		8DF4A827168B7C610025E16D /* Build configuration list for PBXNativeTarget "HTTextFieldAutocompletionExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D3711D216719316002E78C2 /* Debug */,
-				8D3711D316719316002E78C2 /* Release */,
+				8DF4A828168B7C610025E16D /* Debug */,
+				8DF4A829168B7C610025E16D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8D3711A416719316002E78C2 /* Project object */;
+	rootObject = 8DF4A7F7168B7C610025E16D /* Project object */;
 }

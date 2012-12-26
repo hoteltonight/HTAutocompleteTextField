@@ -34,7 +34,9 @@
 
 @protocol HTAutocompleteDataSource <UITextFieldDelegate>
 
-- (NSString*)textField:(HTAutocompleteTextField*)textField completionForPrefix:(NSString*)prefix;
+- (NSString*)textField:(HTAutocompleteTextField*)textField
+   completionForPrefix:(NSString*)prefix
+            ignoreCase:(BOOL)ignoreCase;
 
 @end
 
@@ -44,6 +46,8 @@
 @property (nonatomic, strong) UIColor *autocompleteTextColor;
 @property (nonatomic, assign) NSUInteger autocompleteType;
 @property (nonatomic, assign) BOOL autocompleteDisabled;
+@property (nonatomic, assign) BOOL ignoreCase;
+@property (nonatomic, assign) CGPoint autocompleteTextOffset;
 
 // autocompleteDataSource takes precedence over the GlobalDataSource setting
 @property (nonatomic, assign) id autocompleteDataSource;
@@ -53,5 +57,8 @@
 
 // DefaultDataSource will be overridden if autocompleteDataSource is set
 + (void)setDefaultAutocompleteDataSource:(id)dataSource;
+
+// Override this method in a subclass to alter the position of the autocomplete text
+- (CGRect)autocompleteRectForBounds:(CGRect)bounds;
 
 @end

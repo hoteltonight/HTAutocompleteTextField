@@ -2,7 +2,7 @@ platform :ios, :deployment_target => '4.3'
 
 xcodeproj 'HTTextFieldAutocompletionExample'
 
-pod 'HTAutocompleteTextField', :podspec => '../HTAutocompleteTextField.podspec'
+pod 'HTDelegateProxy', :podspec => './podspecs/HTDelegateProxy.podspec'
 
 post_install do |installer|
   installer.target_installers.each do |target_installer|

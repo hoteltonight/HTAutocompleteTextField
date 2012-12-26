@@ -47,14 +47,14 @@ static id DefaultAutocompleteDataSource = nil;
     self = [super initWithFrame:frame];
     if (self) 
     {
-        [self setupSubviews];
+        [self setup];
     }
     return self;
 }
 
 - (void)awakeFromNib
 {
-    [self setupSubviews];    
+    [self setup];    
 }
 
 - (void)dealloc
@@ -62,7 +62,7 @@ static id DefaultAutocompleteDataSource = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self];
 }
 
-- (void)setupSubviews
+- (void)setup
 {
     self.autocompleteLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.autocompleteLabel.font = self.font;
@@ -73,6 +73,8 @@ static id DefaultAutocompleteDataSource = nil;
     [self bringSubviewToFront:self.autocompleteLabel];
 
     self.autocompleteString = @"";
+
+    self.ignoreCase = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
 }
@@ -150,32 +152,35 @@ static id DefaultAutocompleteDataSource = nil;
 {
     CGRect returnRect = CGRectZero;
     CGRect textRect = [self textRectForBounds:self.bounds];
-    //    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
+    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
     
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
                                       lineBreakMode:UILineBreakModeCharacterWrap];
-    //    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
+    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
     
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
                                                       lineBreakMode:UILineBreakModeCharacterWrap];
-    //    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
+    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
     
-    returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width,
-                            0.0,
+    returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
+                            textRect.origin.y + self.autocompleteTextOffset.y,
                             autocompleteTextSize.width,
                             textRect.size.height);
-        
+
+    NSLog(@"returnRect: %@", NSStringFromCGRect(returnRect));
+
     return returnRect;
 }
 
 - (void)textDidChange:(NSNotification*)notification
 {
-    if ([self.delegate respondsToSelector:@selector(textField:completionForPrefix:)]
+    if ([self.delegate respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)]
         && self.autocompleteDisabled == NO)
     {
-        self.autocompleteString = [((id<HTAutocompleteDataSource>)self.delegate) textField:self completionForPrefix:[self.text lowercaseString]];
+        self.autocompleteString = [((id<HTAutocompleteDataSource>)self.delegate) textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
+        
         [self updateAutocompleteLabel];
     }
 }
