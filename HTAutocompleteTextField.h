@@ -55,7 +55,7 @@
 - (void)setDelegates:(NSArray *)delegates;
 - (void)commitAutocompleteText;
 
-// DefaultDataSource will be overridden if autocompleteDataSource is set
+// DefaultDataSource will be overridden if autocompleteDataSource is set.
 + (void)setDefaultAutocompleteDataSource:(id)dataSource;
 
 // Override this method in a subclass to alter the position of the autocomplete text

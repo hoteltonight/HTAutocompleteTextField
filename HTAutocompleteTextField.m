@@ -29,7 +29,7 @@
 
 #import "HTAutocompleteTextField.h"
 
-static id DefaultAutocompleteDataSource = nil;
+static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
 
 @interface HTAutocompleteTextField ()
 @property (nonatomic, strong) UILabel *autocompleteLabel;
@@ -94,16 +94,15 @@ static id DefaultAutocompleteDataSource = nil;
 - (void)setDelegates:(NSArray *)delegates
 {
     NSMutableArray *combinedDelegates = [NSMutableArray arrayWithArray:delegates];
-    
-    [combinedDelegates addObject:self];
+
+    if (![delegates containsObject:self])
+    {
+        [combinedDelegates addObject:self];
+    }
 
     if (self.autocompleteDataSource)
     {
         [combinedDelegates addObject:self.autocompleteDataSource];
-    }
-    else if (DefaultAutocompleteDataSource)
-    {
-        [combinedDelegates addObject:DefaultAutocompleteDataSource];
     }
     
     self.delegateProxy = [[HTDelegateProxy alloc] init];
@@ -152,36 +151,44 @@ static id DefaultAutocompleteDataSource = nil;
 {
     CGRect returnRect = CGRectZero;
     CGRect textRect = [self textRectForBounds:self.bounds];
-    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
     
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
                                       lineBreakMode:UILineBreakModeCharacterWrap];
-    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
     
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
                                                       lineBreakMode:UILineBreakModeCharacterWrap];
-    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
     
     returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
                             textRect.origin.y + self.autocompleteTextOffset.y,
                             autocompleteTextSize.width,
                             textRect.size.height);
 
-    NSLog(@"returnRect: %@", NSStringFromCGRect(returnRect));
-
     return returnRect;
 }
 
 - (void)textDidChange:(NSNotification*)notification
 {
-    if ([self.delegate respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)]
-        && self.autocompleteDisabled == NO)
+    if (self.autocompleteDisabled == NO)
     {
-        self.autocompleteString = [((id<HTAutocompleteDataSource>)self.delegate) textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
-        
-        [self updateAutocompleteLabel];
+        id <HTAutocompleteDataSource> dataSource = nil;
+
+        if ([self.delegate respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        {
+            dataSource = (id <HTAutocompleteDataSource>)self.delegate;
+        }
+        else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        {
+            dataSource = DefaultAutocompleteDataSource;
+        }
+
+        if (dataSource)
+        {
+            self.autocompleteString = [dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
+
+            [self updateAutocompleteLabel];
+        }
     }
 }
 

@@ -25,13 +25,23 @@
 
     self.favoriteColorTextField.autocompleteType = HTAutocompleteTypeColor;
     self.favoriteColorTextField.ignoreCase = NO;
+
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleTap];
 }
 
 - (void)viewDidUnload
 {
     [self setEmailTextField:nil];
     [self setFavoriteColorTextField:nil];
-    
+
     [super viewDidUnload];
 }
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)sender
+{
+    [self.emailTextField resignFirstResponder];
+    [self.favoriteColorTextField resignFirstResponder];
+}
+
 @end
