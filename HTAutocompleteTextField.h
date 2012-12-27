@@ -13,7 +13,7 @@
 
 @class  HTAutocompleteTextField;
 
-@protocol HTAutocompleteDataSource <UITextFieldDelegate>
+@protocol HTAutocompleteDataSource <NSObject>
 
 - (NSString*)textField:(HTAutocompleteTextField*)textField
    completionForPrefix:(NSString*)prefix
@@ -23,23 +23,40 @@
 
 @interface HTAutocompleteTextField : UITextField <UITextFieldDelegate>
 
-@property (nonatomic, strong) NSString *autocompleteString;
-@property (nonatomic, strong) UIColor *autocompleteTextColor;
+/*
+ * Designated programmatic initializer (also compatible with Interface Builder)
+ */
+- (id)initWithFrame:(CGRect)frame;
+
+/*
+ * Autocomplete behavior
+ */
 @property (nonatomic, assign) NSUInteger autocompleteType;
 @property (nonatomic, assign) BOOL autocompleteDisabled;
 @property (nonatomic, assign) BOOL ignoreCase;
+
+/*
+ * Configure text field appearance
+ */
+@property (nonatomic, strong) UILabel *autocompleteLabel;
+- (void)setFont:(UIFont *)font;
 @property (nonatomic, assign) CGPoint autocompleteTextOffset;
 
-// autocompleteDataSource takes precedence over the GlobalDataSource setting
-@property (nonatomic, assign) id autocompleteDataSource;
+/*
+ * Specify a data source responsible for determining autocomplete text.
+ */
+@property (nonatomic, assign) id<HTAutocompleteDataSource> autocompleteDataSource;
++ (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
 
+/*
+ * Specify one or more objects as delegates that conform to UITextFieldDelegate.
+ */
+- (void)setDelegate:(id<UITextFieldDelegate>)delegate;
 - (void)setDelegates:(NSArray *)delegates;
-- (void)commitAutocompleteText;
 
-// DefaultDataSource will be overridden if autocompleteDataSource is set.
-+ (void)setDefaultAutocompleteDataSource:(id)dataSource;
-
-// Override this method in a subclass to alter the position of the autocomplete text
+/*
+ * Subclassing: override this method to alter the position of the autocomplete text
+ */
 - (CGRect)autocompleteRectForBounds:(CGRect)bounds;
 
 @end

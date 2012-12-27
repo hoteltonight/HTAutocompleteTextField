@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HTAutocompleteTextField.h"
 
-@interface HTViewController : UIViewController
+@interface HTViewController : UIViewController <UITextFieldDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *emailTextField;
 @property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *favoriteColorTextField;

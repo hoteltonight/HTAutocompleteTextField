@@ -10,18 +10,18 @@
 
 #import "HTAutocompleteTextField.h"
 
-static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
+static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 @interface HTAutocompleteTextField ()
-@property (nonatomic, strong) UILabel *autocompleteLabel;
+
 @property (nonatomic, strong) HTDelegateProxy *delegateProxy;
+@property (nonatomic, strong) NSString *autocompleteString;
+
 @end
 
 @implementation HTAutocompleteTextField
 
 @class HTAutocompleteTextFieldDelegate;
-
-@dynamic autocompleteTextColor;
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -58,14 +58,16 @@ static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
     self.ignoreCase = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
+
+    self.delegate = self;
 }
+
+#pragma mark - Configuration
 
 + (void)setDefaultAutocompleteDataSource:(id)dataSource
 {
     DefaultAutocompleteDataSource = dataSource;
 }
-
-#pragma mark - Properties
 
 - (void)setDelegate:(id<UITextFieldDelegate>)delegate
 {
@@ -78,12 +80,8 @@ static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
 
     if (![delegates containsObject:self])
     {
+        // Add self as delegate so that -textFieldDidEndEditing: gets called
         [combinedDelegates addObject:self];
-    }
-
-    if (self.autocompleteDataSource)
-    {
-        [combinedDelegates addObject:self.autocompleteDataSource];
     }
     
     self.delegateProxy = [[HTDelegateProxy alloc] init];
@@ -95,16 +93,6 @@ static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
 {
     [super setFont:font];
     [self.autocompleteLabel setFont:font];
-}
-
-- (void)setAutocompleteTextColor:(UIColor*)color
-{
-    self.autocompleteLabel.textColor = color;
-}
-
-- (UIColor*)autocompleteTextColor
-{
-    return self.autocompleteLabel.textColor;
 }
 
 #pragma mark - UIResponder
@@ -155,7 +143,7 @@ static id <HTAutocompleteDataSource> DefaultAutocompleteDataSource = nil;
     {
         id <HTAutocompleteDataSource> dataSource = nil;
 
-        if ([self.delegate respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
         {
             dataSource = (id <HTAutocompleteDataSource>)self.delegate;
         }
