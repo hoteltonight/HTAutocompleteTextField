@@ -27,14 +27,14 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self = [super initWithFrame:frame];
     if (self) 
     {
-        [self setup];
+        [self setupAutocompleteTextField];
     }
     return self;
 }
 
 - (void)awakeFromNib
 {
-    [self setup];    
+    [self setupAutocompleteTextField];    
 }
 
 - (void)dealloc
@@ -42,7 +42,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self];
 }
 
-- (void)setup
+- (void)setupAutocompleteTextField
 {
     self.autocompleteLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.autocompleteLabel.font = self.font;
