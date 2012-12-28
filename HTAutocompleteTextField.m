@@ -14,7 +14,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 @interface HTAutocompleteTextField ()
 
-@property (nonatomic, strong) HTDelegateProxy *delegateProxy;
 @property (nonatomic, strong) NSString *autocompleteString;
 
 @end
@@ -67,26 +66,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 + (void)setDefaultAutocompleteDataSource:(id)dataSource
 {
     DefaultAutocompleteDataSource = dataSource;
-}
-
-- (void)setDelegate:(id<UITextFieldDelegate>)delegate
-{
-    [self setDelegates:@[delegate]];
-}
-
-- (void)setDelegates:(NSArray *)delegates
-{
-    NSMutableArray *combinedDelegates = [NSMutableArray arrayWithArray:delegates];
-
-    if (![delegates containsObject:self])
-    {
-        // Add self as delegate so that -textFieldDidEndEditing: gets called
-        [combinedDelegates addObject:self];
-    }
-    
-    self.delegateProxy = [[HTDelegateProxy alloc] init];
-    [self.delegateProxy setDelegates:combinedDelegates];
-    [super setDelegate:(id)self.delegateProxy];
 }
 
 - (void)setFont:(UIFont *)font

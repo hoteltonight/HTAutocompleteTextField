@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F30794FC159454F8E0FF41A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541886FBCF924E768C27BA1C /* libPods.a */; };
 		8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A804168B7C610025E16D /* UIKit.framework */; };
 		8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A806168B7C610025E16D /* Foundation.framework */; };
 		8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A808168B7C610025E16D /* CoreGraphics.framework */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		541886FBCF924E768C27BA1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF4A804168B7C610025E16D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -58,7 +56,6 @@
 				8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */,
 				8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */,
 				8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */,
-				6F30794FC159454F8E0FF41A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +69,6 @@
 				8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */,
 				8DF4A803168B7C610025E16D /* Frameworks */,
 				8DF4A801168B7C610025E16D /* Products */,
-				3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,7 +141,6 @@
 				8DF4A7FC168B7C610025E16D /* Sources */,
 				8DF4A7FD168B7C610025E16D /* Frameworks */,
 				8DF4A7FE168B7C610025E16D /* Resources */,
-				AFDFE8FFD6D144A2908B6C3C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,23 +193,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AFDFE8FFD6D144A2908B6C3C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DF4A7FC168B7C610025E16D /* Sources */ = {
@@ -305,7 +283,6 @@
 		};
 		8DF4A828168B7C610025E16D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";
@@ -318,7 +295,6 @@
 		};
 		8DF4A829168B7C610025E16D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F82D2FB830B4D8985ACA293 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";

@@ -9,7 +9,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HTDelegateProxy.h"
 
 @class  HTAutocompleteTextField;
 
@@ -47,12 +46,6 @@
  */
 @property (nonatomic, assign) id<HTAutocompleteDataSource> autocompleteDataSource;
 + (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
-
-/*
- * Specify one or more objects as delegates that conform to UITextFieldDelegate.
- */
-- (void)setDelegate:(id<UITextFieldDelegate>)delegate;
-- (void)setDelegates:(NSArray *)delegates;
 
 /*
  * Subclassing: override this method to alter the position of the autocomplete text
