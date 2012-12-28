@@ -111,6 +111,9 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 - (BOOL)resignFirstResponder
 {
     self.autocompleteLabel.hidden = YES;
+
+    [self commitAutocompleteText];
+
     return [super resignFirstResponder];
 }
 
@@ -178,11 +181,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
         self.autocompleteString = @"";
         [self updateAutocompleteLabel];
     }
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    [(HTAutocompleteTextField *)textField commitAutocompleteText];
 }
 
 @end
