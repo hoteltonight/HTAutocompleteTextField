@@ -1,7 +1,6 @@
 <img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/ht-logo-black.png" alt="HotelTonight" title="HotelTonight" style="display:block; margin: 10px auto 30px auto;">
 
-#HTAutocompleteTextField
-===========================
+# HTAutocompleteTextField
 
 ## Overview
 
@@ -9,9 +8,9 @@ HTAutocompleteTextField is a subclass of UITextField that automatically displays
 
 <img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif" alt="HotelTonight" title="HTAutocompleteTextField in action" style="display:block; margin: 10px auto 30px auto; align:center">
 
-## Usage
+# Usage
 
-### Quickstart Guide
+## Quickstart Guide
 
 Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To install via cocoapods:
 
@@ -26,9 +25,9 @@ Provide your HTAutocompleteTextField with a data source to provide autocomplete 
     id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
     autocompleteTextField.dataSource = dataSource;
 
- ### Customization
+## Customization
 
- ## The Data Source
+### Autocompletion Data Source
 
  A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol:
 
@@ -40,7 +39,7 @@ Provide your HTAutocompleteTextField with a data source to provide autocomplete 
 
      [autocompleteTextOffset setDefaultAutocompleteDataSource:[HTAutocompleteManager sharedManager]];
 
-## Positioning and Formatting
+### Positioning and Formatting
 
 To adjust the position of the autocomplete label by a fixed amount, set `autocompleteTextOffset`:
 
