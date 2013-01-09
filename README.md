@@ -5,9 +5,9 @@
 
 ## Overview
 
-HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.
+HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.  This is perfect for automatically suggesting the domain as a user types an email address.
 
-![HTAutocompleteTextField Demo](https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif)
+<img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif" alt="HotelTonight" title="HTAutocompleteTextField in action" style="display:block; margin: 10px auto 30px auto; align:center">
 
 ## Usage
 
@@ -15,16 +15,16 @@ HTAutocompleteTextField is a subclass of UITextField that automatically displays
 
 Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To install via cocoapods:
 
-    pod 'HTStateAwareRasterImageView'
+    pod 'HTAutocompleteTextField'
 
 Create an instance of it as you would a UITextField:
 
-    HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
+    HTAutocompleteTextField *autocompleteTextField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
 Provide your HTAutocompleteTextField with a data source to provide autocomplete suggestions.  To do so, set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
 
     id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
-    textField.dataSource = dataSource;
+    autocompleteTextField.dataSource = dataSource;
 
  ### Customization
 
@@ -34,13 +34,21 @@ Provide your HTAutocompleteTextField with a data source to provide autocomplete 
 
     - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 
- `HTAutocompleteManager`, included in the example project, will provide email address suggestions as shown in the demo.  Feel free to repurpose this class for your own use.  You might want to write autocomplete logic for a different type of text field (in the demo, color names are autocompleted) or simply modify the list of email domains.
+ `HTAutocompleteManager` (included in the example project) provies email address suggestions out of the box.  Feel free to repurpose this class for your own use.  You may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted), or simply modify the list of email domains used in the email address autocomplete logic.
 
- You may also use `+ (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource` to set a default `dataSource` for all instances of `HTAutocompleteTextField`.
+ You may also set a default `dataSource` for all instances of `HTAutocompleteTextField`.  In the example project, we use a `HTAutocompleteManager` singleton:
+
+     [autocompleteTextOffset setDefaultAutocompleteDataSource:[HTAutocompleteManager sharedManager]];
 
 ## Positioning and Formatting
 
-To adjust the position of the autocomplete label by a fixed amount, set `[HTAutocompleteTextField autocompleteTextOffset]`.  For more advanced positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
+To adjust the position of the autocomplete label by a fixed amount, set `autocompleteTextOffset`:
+
+    autocompleteTextField.autocompleteTextOffset = CGPointMake(10.0, 10.0);
+
+For more advanced positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
 
 To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
+
+    autocompleteTextField.autocompleteLabel.textColor = [UIColor grayColor];
 
