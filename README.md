@@ -1,57 +1,46 @@
+<img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/ht-logo-black.png" alt="HotelTonight" title="HotelTonight" style="display:block; margin: 10px auto 30px auto;">
+
 #HTAutocompleteTextField
+===========================
 
-HTAutocompleteTextField is a subclass of UITextField that provide the user with
-autocompleted text, similar to the URL bar on major browsers and Google Suggest.
+## Overview
 
-![HTAutocompleteTextField Screenshot](https://github.com/HotelTonight/HTAutocompleteTextField/raw/master/screenshot.gif)
+HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.
 
-#Usage
+![HTAutocompleteTextField Demo](https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif)
 
-Add HTAutocompleteTextField to your project, create an instance of it
-as you would create a UITextField and set the delegate.
+## Usage
+
+### Quickstart Guide
+
+Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To install via cocoapods:
+
+    pod 'HTStateAwareRasterImageView'
+
+Create an instance of it as you would a UITextField:
 
     HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
-    textField.delegate = self;
 
-In your HTAutocompleteTextFieldDelegate provide the completions according to you own logic
-or similar to the demo.
-	
-	- (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
-	{
-    	// This is a simple example of how to provide DOAutocomleteTextField with completions
-	    NSArray *autocompleteArray = [NSArray arrayWithObjects:
-	                                  @"thesaurus",
-	                                  @"the weather channel",
-	                                  @"DoAT",
-	                                  @"Doctor Who",
-	                                  @"Dachshunds are the best",
-	                                  @"ccccombo breaker",
-	                                  @"money",
-	                                  @"Mona lisa",
-	                                  @"Monalisa",
-	                                  @"mcdonalds",
-	                                  @"mc hammer", 
-	                                  @"long cat is looooooooooooooooooog",
-	                                  nil];
-	    
-	    for (NSString *string in autocompleteArray) 
-	    {
-	        if([string hasPrefix:prefix])
-	        {
-	            return [string stringByReplacingCharactersInRange:[prefix rangeOfString:prefix] withString:@""];
-	        }
-	        
-	    }
-	    
-	    return @"";
-	}
+Provide your HTAutocompleteTextField with a data source to provide autocomplete suggestions.  To do so, set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
 
-HTAutocompleteTextField draws the completion text immediately after user input.
+    id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
+    textField.dataSource = dataSource;
 
-#Known Issues
+ ### Customization
 
-* Completion position is still a bit off.
-* No way of detecting taps on autocomplete label.
+ ## The Data Source
 
-##Copyright
-Copyright 2012 HotelTonight. All rights reserved. See LICENSE for more details.
+ A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol:
+
+    - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
+
+ `HTAutocompleteManager`, included in the example project, will provide email address suggestions as shown in the demo.  Feel free to repurpose this class for your own use.  You might want to write autocomplete logic for a different type of text field (in the demo, color names are autocompleted) or simply modify the list of email domains.
+
+ You may also use `+ (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource` to set a default `dataSource` for all instances of `HTAutocompleteTextField`.
+
+## Positioning and Formatting
+
+To adjust the position of the autocomplete label by a fixed amount, set `[HTAutocompleteTextField autocompleteTextOffset]`.  For more advanced positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
+
+To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
+
