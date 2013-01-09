@@ -6,6 +6,8 @@
 
 HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.  This is perfect for automatically suggesting the domain as a user types an email address.
 
+You can see HTAutocompleteTextField in action in the animated gif below or on [Youtube](http://youtu.be/lzqB4MXluvY):
+
 <img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif" alt="HotelTonight" title="HTAutocompleteTextField in action" style="display:block; margin: 10px auto 30px auto; align:center">
 
 # Usage
@@ -16,11 +18,11 @@ Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To
 
     pod 'HTAutocompleteTextField'
 
-Create an instance of it as you would a UITextField:
+Create an `HTAutocompleteTextField` instance exactly as as you would `UITextField`.  You can do eith either programmitcally or in Interface Builder.  Programmatically, this looks like:
 
     HTAutocompleteTextField *autocompleteTextField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
-Provide your HTAutocompleteTextField with a data source to provide autocomplete suggestions.  To do so, set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
+The data source is the brains of the autocomplete logic:.  Set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
 
     id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
     autocompleteTextField.dataSource = dataSource;
@@ -50,4 +52,3 @@ For more dynamic positioning of the autocomplete label, subclass `HTAutocomplete
 To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
 
     autocompleteTextField.autocompleteLabel.textColor = [UIColor grayColor];
-
