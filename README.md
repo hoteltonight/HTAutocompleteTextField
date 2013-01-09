@@ -45,7 +45,7 @@ To adjust the position of the autocomplete label by a fixed amount, set `autocom
 
     autocompleteTextField.autocompleteTextOffset = CGPointMake(10.0, 10.0);
 
-For more advanced positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
+For more dynamic positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
 
 To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
 
