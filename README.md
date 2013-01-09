@@ -20,12 +20,12 @@ Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To
 
 Create an `HTAutocompleteTextField` instance exactly as as you would `UITextField`.  You can do eith either programmitcally or in Interface Builder.  Programmatically, this looks like:
 
-    HTAutocompleteTextField *autocompleteTextField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
+    HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
 The data source is the brains of the autocomplete logic:.  Set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
 
     id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
-    autocompleteTextField.dataSource = dataSource;
+    textField.dataSource = dataSource;
 
 ## Customization
 
@@ -45,10 +45,10 @@ The data source is the brains of the autocomplete logic:.  Set the `dataSource` 
 
 To adjust the position of the autocomplete label by a fixed amount, set `autocompleteTextOffset`:
 
-    autocompleteTextField.autocompleteTextOffset = CGPointMake(10.0, 10.0);
+    textField.autocompleteTextOffset = CGPointMake(10.0, 10.0);
 
 For more dynamic positioning of the autocomplete label, subclass `HTAutocompleteTextField` and override `- (CGRect)autocompleteRectForBounds:(CGRect)bounds`.
 
 To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
 
-    autocompleteTextField.autocompleteLabel.textColor = [UIColor grayColor];
+    textField.autocompleteLabel.textColor = [UIColor grayColor];
