@@ -22,7 +22,7 @@ Create an `HTAutocompleteTextField` instance exactly as as you would `UITextFiel
 
     HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
-The data source is the brains of the autocomplete logic:.  Set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.
+The data source is the brains of the autocomplete logic:.  Set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.  For autocompleting email addresses, use  `HTAutocompleteManager` from the example project.
 
     id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
     textField.dataSource = dataSource;
