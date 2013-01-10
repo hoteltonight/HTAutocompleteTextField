@@ -53,7 +53,7 @@ To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, d
 
     textField.autocompleteLabel.textColor = [UIColor grayColor];
     
-# Etc
+# Etc.
 
 * Use this in your apps whenever you can, particularly email addresses -- your users will appreciate it!
 * Contributions are very welcome.
