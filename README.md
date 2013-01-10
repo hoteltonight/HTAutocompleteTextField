@@ -52,3 +52,9 @@ For more dynamic positioning of the autocomplete label, subclass `HTAutocomplete
 To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, do so via the `[AutocompleteTextField autocompleteLabel] property.
 
     textField.autocompleteLabel.textColor = [UIColor grayColor];
+    
+# Etc
+
+* Use this in your apps whenever you can, particularly email addresses -- your users will appreciate it!
+* Contributions are very welcome.
+* Attribution is appreciated (let's spread the word!), but not mandatory.
