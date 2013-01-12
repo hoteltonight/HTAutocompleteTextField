@@ -12,32 +12,34 @@ You can see HTAutocompleteTextField in action in the animated gif below or on [Y
 
 # Usage
 
-## Quickstart Guide
+## Installation
 
-Add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project.  To install via cocoapods:
+Either add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project, or install via cocoapods:
 
     pod 'HTAutocompleteTextField'
+
+## Quickstart Guide
 
 Create an `HTAutocompleteTextField` instance exactly as as you would `UITextField`.  You can do eith either programmitcally or in Interface Builder.  Programmatically, this looks like:
 
     HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
-The data source is the brains of the autocomplete logic:.  Set the `dataSource` to an object that conforms to the `HTAutocompleteDataSource` protocol.  For autocompleting email addresses, use  `HTAutocompleteManager` from the example project.
+The data source is the brains of the autocomplete logic.  If you simply want to autocomplete email addresses, use `HTAutocompleteManager` from the example project as follows:
 
-    id<HTAutocompleteTextFieldDelegate> dataSource = [MyAutocompleteDataSource alloc] init];
-    textField.dataSource = dataSource;
+    textField.dataSource = [HTAutocompleteManager sharedManager];
+    textField.autocompleteType = HTAutocompleteTypeEmail;
 
 ## Customization
 
 ### Autocompletion Data Source
 
- A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol:
+`HTAutocompleteManager` (included in the example project) provides email address autocompletion out of the box.  Feel free to repurpose this class for your own use.  You may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted), or simply modify the list of email domains used in the email address autocomplete logic.
+
+Alternatively, you may wish to create your own data source class and user the `autocompleteType` property to differentiate between fields with different data types.  A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol.
 
     - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 
- `HTAutocompleteManager` (included in the example project) provies email address suggestions out of the box.  Feel free to repurpose this class for your own use.  You may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted), or simply modify the list of email domains used in the email address autocomplete logic.
-
- You may also set a default `dataSource` for all instances of `HTAutocompleteTextField`.  In the example project, we use a `HTAutocompleteManager` singleton:
+You may also set a default `dataSource` for all instances of `HTAutocompleteTextField`.  In the example project, we use a `HTAutocompleteManager` singleton:
 
      [autocompleteTextOffset setDefaultAutocompleteDataSource:[HTAutocompleteManager sharedManager]];
 
