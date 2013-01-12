@@ -93,6 +93,10 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
     [self commitAutocompleteText];
 
+    // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
+    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
+                                                        object:self];
+
     return [super resignFirstResponder];
 }
 
