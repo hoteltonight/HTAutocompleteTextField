@@ -127,7 +127,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
         if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
         {
-            dataSource = (id <HTAutocompleteDataSource>)self.delegate;
+            dataSource = (id <HTAutocompleteDataSource>)self.autocompleteDataSource;
         }
         else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
         {
