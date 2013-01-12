@@ -56,7 +56,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
     self.ignoreCase = YES;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ht_textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
 
     self.delegate = self;
 }
@@ -119,7 +119,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     return returnRect;
 }
 
-- (void)textDidChange:(NSNotification*)notification
+- (void)ht_textDidChange:(NSNotification*)notification
 {
     if (self.autocompleteDisabled == NO)
     {
