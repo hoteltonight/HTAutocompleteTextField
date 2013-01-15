@@ -34,6 +34,8 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     [self setupAutocompleteTextField];    
 }
 
