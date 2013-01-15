@@ -20,8 +20,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 @implementation HTAutocompleteTextField
 
-@class HTAutocompleteTextFieldDelegate;
-
 - (id)initWithFrame:(CGRect)frame 
 {
     self = [super initWithFrame:frame];
@@ -59,8 +57,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self.ignoreCase = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ht_textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
-
-    self.delegate = self;
 }
 
 #pragma mark - Configuration
