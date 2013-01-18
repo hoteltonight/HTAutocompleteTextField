@@ -49,6 +49,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self.autocompleteLabel.backgroundColor = [UIColor clearColor];
     self.autocompleteLabel.textColor = [UIColor lightGrayColor];
     self.autocompleteLabel.lineBreakMode = UILineBreakModeClip;
+    self.autocompleteLabel.hidden = YES;
     [self addSubview:self.autocompleteLabel];
     [self bringSubviewToFront:self.autocompleteLabel];
 
@@ -76,24 +77,31 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 - (BOOL)becomeFirstResponder
 {
-    if ([self clearsOnBeginEditing]) 
+    if (!self.autocompleteDisabled)
     {
-        self.autocompleteLabel.text = @"";
+        if ([self clearsOnBeginEditing])
+        {
+            self.autocompleteLabel.text = @"";
+        }
+
+        self.autocompleteLabel.hidden = NO;
     }
-    
-    self.autocompleteLabel.hidden = NO;
+
     return [super becomeFirstResponder];
 }
 
 - (BOOL)resignFirstResponder
 {
-    self.autocompleteLabel.hidden = YES;
+    if (!self.autocompleteDisabled)
+    {
+        self.autocompleteLabel.hidden = YES;
 
-    [self commitAutocompleteText];
+        [self commitAutocompleteText];
 
-    // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
-    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
-                                                        object:self];
+        // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
+        [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
+                                                            object:self];
+    }
 
     return [super resignFirstResponder];
 }
@@ -123,7 +131,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 - (void)ht_textDidChange:(NSNotification*)notification
 {
-    if (self.autocompleteDisabled == NO)
+    if (!self.autocompleteDisabled)
     {
         id <HTAutocompleteDataSource> dataSource = nil;
 
