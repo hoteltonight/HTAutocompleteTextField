@@ -6,7 +6,7 @@
 
 HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.  This is perfect for automatically suggesting the domain as a user types an email address.
 
-You can see HTAutocompleteTextField in action in the animated gif below or on [Youtube](http://youtu.be/lzqB4MXluvY):
+You can see it in action in the animated gif below or on [Youtube](http://youtu.be/lzqB4MXluvY), or read about it in the accompanying [blog post](http://engineering.hoteltonight.com/lets-stop-making-our-users-type-gmailcom) on the HotelTonight [Engineering Blog](http://engineering.hoteltonight.com/):
 
 <img src="https://raw.github.com/hoteltonight/HTAutocompleteTextField/master/demo.gif" alt="HotelTonight" title="HTAutocompleteTextField in action" style="display:block; margin: 10px auto 30px auto; align:center">
 
