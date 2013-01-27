@@ -4,7 +4,7 @@
 
 ## Overview
 
-HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time on the text the user has entered.  This is perfect for automatically suggesting the domain as a user types an email address.
+HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time.  This is perfect for automatically suggesting the domain as a user types an email address.
 
 You can see it in action in the animated gif below or on [Youtube](http://youtu.be/lzqB4MXluvY), or read about it in the accompanying [blog post](http://engineering.hoteltonight.com/lets-stop-making-our-users-type-gmailcom) on the HotelTonight [Engineering Blog](http://engineering.hoteltonight.com/):
 
@@ -14,9 +14,14 @@ You can see it in action in the animated gif below or on [Youtube](http://youtu.
 
 ## Installation
 
-Either add HTAutocompleteTextField.m and HTAutocompleteTextField.h to your project, or install via cocoapods:
+### If you're not using Cocoapods (or don't know what Cocoapods is), add the following files to your project:
+* `HTAutocompleteTextField.m`
+* `HTAutocompleteTextField.h`
+* `HTAutocompleteManager.m` and `HTAutocompleteManager.h`
 
-    pod 'HTAutocompleteTextField'
+### If you're using Cocoapods:
+* Add `pod 'HTAutocompleteTextField'` to your `Podfile`
+* Manually add `HTAutocompleteManager.m` and `HTAutocompleteManager.h` to your project (these files are not part of the pod, as you will probably want to customize them)
 
 ## Quickstart Guide
 
@@ -24,7 +29,7 @@ Create an `HTAutocompleteTextField` instance exactly as as you would `UITextFiel
 
     HTAutocompleteTextField *textField = [[HTAutocompleteTextField alloc] initWithFrame:CGRectMake(0,0,100,31)];
 
-The data source is the brains of the autocomplete logic.  If you simply want to autocomplete email addresses, use `HTAutocompleteManager` from the example project as follows:
+The data source is the brains of the autocomplete logic.  If you just want to autocomplete email addresses, use `HTAutocompleteManager` from the example project as follows:
 
     textField.dataSource = [HTAutocompleteManager sharedManager];
     textField.autocompleteType = HTAutocompleteTypeEmail;
@@ -33,7 +38,7 @@ The data source is the brains of the autocomplete logic.  If you simply want to 
 
 ### Autocompletion Data Source
 
-`HTAutocompleteManager` (included in the example project) provides email address autocompletion out of the box.  Feel free to repurpose this class for your own use.  You may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted), or simply modify the list of email domains used in the email address autocomplete logic.
+`HTAutocompleteManager` (included in the example project) provides email address autocompletion out of the box.  It comes with a list of the top email domains based on the HotelTonight customer database.  You may want to tailor this list of email domains to match your own customers, or you may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted).
 
 Alternatively, you may wish to create your own data source class and user the `autocompleteType` property to differentiate between fields with different data types.  A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol.
 
