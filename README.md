@@ -31,7 +31,7 @@ Create an `HTAutocompleteTextField` instance exactly as as you would `UITextFiel
 
 The data source is the brains of the autocomplete logic.  If you just want to autocomplete email addresses, use `HTAutocompleteManager` from the example project as follows:
 
-    textField.dataSource = [HTAutocompleteManager sharedManager];
+    textField.autocompleteDataSource = [HTAutocompleteManager sharedManager];
     textField.autocompleteType = HTAutocompleteTypeEmail;
 
 ## Customization
