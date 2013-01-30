@@ -53,8 +53,8 @@
 - (CGRect)autocompleteRectForBounds:(CGRect)bounds;
 
 /*
- * Used to update a textfield without requiring the user to edit the text within it.  Useful if changing the type of textfield on the fly.
+ * Refresh the autocomplete text manually (useful if you want the text to change while the user isn't editing the text)
  */
-- (void)updateAutocompleteField;
+- (void)forceRefreshAutocompleteText;
 
 @end

@@ -131,6 +131,18 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 - (void)ht_textDidChange:(NSNotification*)notification
 {
+    [self refreshAutocompleteText];
+}
+
+- (void)updateAutocompleteLabel
+{
+    [self.autocompleteLabel setText:self.autocompleteString];
+    [self.autocompleteLabel sizeToFit];
+    [self.autocompleteLabel setFrame: [self autocompleteRectForBounds:self.bounds]];
+}
+
+- (void)refreshAutocompleteText
+{
     if (!self.autocompleteDisabled)
     {
         id <HTAutocompleteDataSource> dataSource = nil;
@@ -151,13 +163,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
             [self updateAutocompleteLabel];
         }
     }
-}
-
-- (void)updateAutocompleteLabel
-{
-    [self.autocompleteLabel setText:self.autocompleteString];
-    [self.autocompleteLabel sizeToFit];
-    [self.autocompleteLabel setFrame: [self autocompleteRectForBounds:self.bounds]];
 }
 
 - (void)commitAutocompleteText
@@ -172,28 +177,9 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     }
 }
 
-- (void)updateAutocompleteField
+- (void)forceRefreshAutocompleteText
 {
-    if (!self.autocompleteDisabled)
-    {
-        id <HTAutocompleteDataSource> dataSource = nil;
-        
-        if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
-        {
-            dataSource = (id <HTAutocompleteDataSource>)self.autocompleteDataSource;
-        }
-        else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
-        {
-            dataSource = DefaultAutocompleteDataSource;
-        }
-        
-        if (dataSource)
-        {
-            self.autocompleteString = [dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
-            
-            [self updateAutocompleteLabel];
-        }
-    }
+    [self refreshAutocompleteText];
 }
 
 @end
