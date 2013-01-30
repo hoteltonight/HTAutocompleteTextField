@@ -172,4 +172,28 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     }
 }
 
+- (void)updateAutocompleteField
+{
+    if (!self.autocompleteDisabled)
+    {
+        id <HTAutocompleteDataSource> dataSource = nil;
+        
+        if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        {
+            dataSource = (id <HTAutocompleteDataSource>)self.autocompleteDataSource;
+        }
+        else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        {
+            dataSource = DefaultAutocompleteDataSource;
+        }
+        
+        if (dataSource)
+        {
+            self.autocompleteString = [dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
+            
+            [self updateAutocompleteLabel];
+        }
+    }
+}
+
 @end
