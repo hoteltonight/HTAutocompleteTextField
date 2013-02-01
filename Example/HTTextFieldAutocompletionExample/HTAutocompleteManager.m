@@ -99,7 +99,6 @@ static HTAutocompleteManager *sharedManager;
                                     @"ail.com",
                                     @"windowslive.com",
                                     @"netzero.com",
-                                    @"email.com",
                                     @"yahoo.com.hk",
                                     @"yandex.ru",
                                     @"mchsi.com",
