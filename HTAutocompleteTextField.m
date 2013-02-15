@@ -125,7 +125,11 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
                             textRect.origin.y + self.autocompleteTextOffset.y,
                             autocompleteTextSize.width,
                             textRect.size.height);
-
+    
+    if (self.textAlignment == UITextAlignmentCenter) {
+        returnRect.origin.x += (self.bounds.size.width - prefixTextSize.width)/2;
+    }
+    
     return returnRect;
 }
 
