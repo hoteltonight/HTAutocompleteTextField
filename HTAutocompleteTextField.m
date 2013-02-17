@@ -96,11 +96,13 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     {
         self.autocompleteLabel.hidden = YES;
 
-        [self commitAutocompleteText];
+        if ([self commitAutocompleteText]) {
+            // Only notify if committing autocomplete actually changed the text.
 
-        // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
-        [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
-                                                            object:self];
+            // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
+            [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
+                                                                object:self];
+        }
     }
 
     return [super resignFirstResponder];
@@ -169,8 +171,9 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     }
 }
 
-- (void)commitAutocompleteText
+- (BOOL)commitAutocompleteText
 {
+    NSString *currentText = self.text;
     if ([self.autocompleteString isEqualToString:@""] == NO
         && self.autocompleteDisabled == NO)
     {
@@ -179,6 +182,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
         self.autocompleteString = @"";
         [self updateAutocompleteLabel];
     }
+    return ![currentText isEqualToString:self.text];
 }
 
 - (void)forceRefreshAutocompleteText
