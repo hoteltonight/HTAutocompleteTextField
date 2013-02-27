@@ -65,3 +65,13 @@ To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, d
 * Use this in your apps whenever you can, particularly email addresses -- your users will appreciate it!
 * Contributions are very welcome.
 * Attribution is appreciated (let's spread the word!), but not mandatory.
+
+## Use it? Love/hate it?
+
+Tweet the author @jonsibs, and check out HotelTonight's engineering blog: http://engineering.hoteltonight.com
+
+Also, check out HotelTonight's other iOS open source:
+* https://github.com/hoteltonight/HTAutocompleteTextField
+* https://github.com/hoteltonight/HTGradientEasing
+* https://github.com/hoteltonight/HTStateAwareRasterImageView
+* https://github.com/hoteltonight/HTDelegateProxy
