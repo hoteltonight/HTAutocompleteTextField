@@ -33,6 +33,8 @@
 @property (nonatomic, assign) NSUInteger autocompleteType; // Can be used by the dataSource to provide different types of autocomplete behavior
 @property (nonatomic, assign) BOOL autocompleteDisabled;
 @property (nonatomic, assign) BOOL ignoreCase;
+@property (nonatomic, assign) BOOL multiRecognitionEnabled;
+@property (nonatomic, assign) BOOL needsClearButtonSpace;
 
 /*
  * Configure text field appearance
@@ -56,5 +58,8 @@
  * Refresh the autocomplete text manually (useful if you want the text to change while the user isn't editing the text)
  */
 - (void)forceRefreshAutocompleteText;
+
+
+- (void)refreshAutocompleteButtonPositionAnimated:(BOOL)animated;
 
 @end
