@@ -40,6 +40,12 @@ The data source is the brains of the autocomplete logic.  If you just want to au
 
 `HTAutocompleteManager` (included in the example project) provides email address autocompletion out of the box.  It comes with a list of the top email domains based on the HotelTonight customer database.  You may want to tailor this list of email domains to match your own customers, or you may want to write autocomplete logic for a different type of text field (in the demo, names of colors are autocompleted).
 
+You can also dynamically add seen email addresses to the HTAutocompleteManager like so:
+
+    [[HTAutocompleteManager sharedManager] addSeenEmailAddress: emailAddress];
+    
+These will then be autocompleted as well.
+
 Alternatively, you may wish to create your own data source class and user the `autocompleteType` property to differentiate between fields with different data types.  A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol.
 
     - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix

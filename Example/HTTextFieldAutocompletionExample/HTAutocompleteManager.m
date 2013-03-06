@@ -8,6 +8,8 @@
 
 #import "HTAutocompleteManager.h"
 
+static NSString *const kHTPreviouslyEnteredEmails=@"HTPreviouslyEnteredEmails";
+
 static HTAutocompleteManager *sharedManager;
 
 @implementation HTAutocompleteManager
@@ -17,6 +19,21 @@ static HTAutocompleteManager *sharedManager;
 	static dispatch_once_t done;
 	dispatch_once(&done, ^{ sharedManager = [[HTAutocompleteManager alloc] init]; });
 	return sharedManager;
+}
+
+-(void)addSeenEmailAddress:(NSString *)emailAddress
+{
+    NSArray *existingEmails = [[NSUserDefaults standardUserDefaults] objectForKey:kHTPreviouslyEnteredEmails];
+    NSMutableArray *newExistingEmails;
+    if (existingEmails) {
+        newExistingEmails = [[NSMutableArray alloc]initWithArray:existingEmails];
+    } else {
+        newExistingEmails = [[NSMutableArray alloc]init];
+    }
+    if (![newExistingEmails containsObject:emailAddress]) {
+        [newExistingEmails addObject:emailAddress];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:newExistingEmails forKey:kHTPreviouslyEnteredEmails];
 }
 
 #pragma mark - HTAutocompleteTextFieldDelegate
@@ -188,6 +205,16 @@ static HTAutocompleteManager *sharedManager;
                                     @"temple.edu",
                                     @"cinci.rr.com"];
         });
+        
+        // Check if the email address has been entered before
+        NSSet *existingEmails = [[NSUserDefaults standardUserDefaults] objectForKey:kHTPreviouslyEnteredEmails];
+        if (existingEmails) {
+            for (NSString *existingEmail in existingEmails) {
+                if ([existingEmail hasPrefix:prefix]) {
+                    return [existingEmail substringFromIndex:prefix.length];
+                }
+            }
+        }
 
         // Check that text field contains an @
         NSRange atSignRange = [prefix rangeOfString:@"@"];
