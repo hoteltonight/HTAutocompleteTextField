@@ -18,4 +18,6 @@ typedef enum {
 
 + (HTAutocompleteManager *)sharedManager;
 
+-(void)addSeenEmailAddress:(NSString *)emailAddress;
+
 @end
