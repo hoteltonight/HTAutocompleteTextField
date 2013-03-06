@@ -266,10 +266,10 @@ static HTAutocompleteManager *sharedManager;
                                                       @"Red",
                                                       @"Cyan"];
                       });
-        
+
         NSString *stringToLookFor;
 		NSArray *componentsString = [prefix componentsSeparatedByString:@","];
-        NSString *prefixLastComponent = componentsString.lastObject;
+        NSString *prefixLastComponent = [componentsString.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if (ignoreCase)
         {
             stringToLookFor = [prefixLastComponent lowercaseString];
