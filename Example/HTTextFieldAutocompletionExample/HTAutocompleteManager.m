@@ -207,11 +207,13 @@ static HTAutocompleteManager *sharedManager;
         });
         
         // Check if the email address has been entered before
-        NSSet *existingEmails = [[NSUserDefaults standardUserDefaults] objectForKey:kHTPreviouslyEnteredEmails];
-        if (existingEmails) {
-            for (NSString *existingEmail in existingEmails) {
-                if ([existingEmail hasPrefix:prefix]) {
-                    return [existingEmail substringFromIndex:prefix.length];
+        if (prefix) {
+            NSSet *existingEmails = [[NSUserDefaults standardUserDefaults] objectForKey:kHTPreviouslyEnteredEmails];
+            if (existingEmails) {
+                for (NSString *existingEmail in existingEmails) {
+                    if ([existingEmail hasPrefix:prefix]) {
+                        return [existingEmail substringFromIndex:prefix.length];
+                    }
                 }
             }
         }
