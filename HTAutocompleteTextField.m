@@ -83,7 +83,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 - (BOOL)becomeFirstResponder
 {
     // This is necessary because the textfield avoids tapping the autocomplete Button
-    [self bringSubviewToFront:_autocompleteButton];
+    [self bringSubviewToFront:self.autocompleteButton];
     if (!self.autocompleteDisabled)
     {
         if ([self clearsOnBeginEditing])
@@ -192,7 +192,8 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 #pragma mark - Setters
 
 // To show/hide the autocompleteButton
-- (void)setMultiRecognitionEnabled:(BOOL)multiRecognitionEnabled {
+- (void)setMultiRecognitionEnabled:(BOOL)multiRecognitionEnabled
+{
     _multiRecognitionEnabled = multiRecognitionEnabled;
     if (!self.autocompleteButton) {
         self.autocompleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -218,7 +219,8 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 }
 
 // Method fired by autocompleteButton for multiRecognition
-- (void)autocompleteText:(id)sender {
+- (void)autocompleteText:(id)sender
+{
     if (!self.autocompleteDisabled)
     {
         self.autocompleteLabel.hidden = NO;
