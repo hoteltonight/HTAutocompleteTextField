@@ -28,7 +28,7 @@
     self.favoriteColorTextField.autocompleteType = HTAutocompleteTypeColor;
     self.favoriteColorTextField.delegate = self;
     self.favoriteColorTextField.ignoreCase = NO;
-    self.favoriteColorTextField.multiRecognitionEnabled = YES;
+    self.favoriteColorTextField.showAutocompleteButton = YES;
     self.favoriteColorTextField.clearButtonMode = UITextFieldViewModeAlways;
     
     // Dismiss the keyboard when the user taps outside of a text field

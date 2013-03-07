@@ -19,7 +19,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 @property (nonatomic, strong) NSString *autocompleteString;
 @property (nonatomic, strong) UIButton *autocompleteButton;
 
-
 @end
 
 @implementation HTAutocompleteTextField
@@ -29,7 +28,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self = [super initWithFrame:frame];
     if (self)
     {
-        _multiRecognitionEnabled = NO;
         [self setupAutocompleteTextField];
     }
     return self;
@@ -57,12 +55,26 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self.autocompleteLabel.hidden = YES;
     [self addSubview:self.autocompleteLabel];
     [self bringSubviewToFront:self.autocompleteLabel];
-    
+
+    self.autocompleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.autocompleteButton addTarget:self action:@selector(autocompleteText:) forControlEvents:UIControlEventTouchUpInside];
+    [self.autocompleteButton setImage:[UIImage imageNamed:@"autocompleteButton"] forState:UIControlStateNormal];
+
+    [self addSubview:self.autocompleteButton];
+    [self bringSubviewToFront:self.autocompleteButton];
+
     self.autocompleteString = @"";
     
     self.ignoreCase = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ht_textDidChange:) name:UITextFieldTextDidChangeNotification object:self];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    self.autocompleteButton.frame = [self frameForAutocompleteButton];
 }
 
 #pragma mark - Configuration
@@ -170,7 +182,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
             {
                 if (self.text.length == 0 || self.text.length == 1)
                 {
-                    [self updateAutocompleteButtonPositionAnimated:YES];
+                    [self updateAutocompleteButtonAnimated:YES];
                 }
             }
             
@@ -196,29 +208,20 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     [self refreshAutocompleteText];
 }
 
-#pragma mark - Setters
-
-// To show/hide the autocompleteButton
-- (void)setMultiRecognitionEnabled:(BOOL)multiRecognitionEnabled
-{
-    _multiRecognitionEnabled = multiRecognitionEnabled;
-    if (!self.autocompleteButton) {
-        self.autocompleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.autocompleteButton.frame = [self frameForAutocompleteButton];
-        [self.autocompleteButton addTarget:self action:@selector(autocompleteText:) forControlEvents:UIControlEventTouchUpInside];
-        [self.autocompleteButton setImage:[UIImage imageNamed:@"autocompleteButton"] forState:UIControlStateNormal];
-        
-        [self addSubview:self.autocompleteButton];
-        [self bringSubviewToFront:self.autocompleteButton];
-    }
-    self.autocompleteButton.hidden = !_multiRecognitionEnabled;
-}
+#pragma mark - Accessors
 
 - (void)setAutocompleteString:(NSString *)autocompleteString
 {
     _autocompleteString = autocompleteString;
 
-    [self updateAutocompleteButtonPositionAnimated:YES];
+    [self updateAutocompleteButtonAnimated:YES];
+}
+
+- (void)setShowAutocompleteButton:(BOOL *)showAutocompleteButton
+{
+    _showAutocompleteButton = showAutocompleteButton;
+
+    [self updateAutocompleteButtonAnimated:YES];
 }
 
 #pragma mark - Private Methods
@@ -252,10 +255,10 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     }
 }
 
-- (void)updateAutocompleteButtonPositionAnimated:(BOOL)animated
+- (void)updateAutocompleteButtonAnimated:(BOOL)animated
 {
     void (^action)(void) = ^{
-        if (self.autocompleteString.length)
+        if (self.autocompleteString.length && self.showAutocompleteButton)
         {
             self.autocompleteButton.alpha = 1;
             self.autocompleteButton.frame = [self frameForAutocompleteButton];
