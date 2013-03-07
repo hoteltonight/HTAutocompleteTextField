@@ -59,7 +59,4 @@
  */
 - (void)forceRefreshAutocompleteText;
 
-
-- (void)refreshAutocompleteButtonPositionAnimated:(BOOL)animated;
-
 @end

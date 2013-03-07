@@ -137,7 +137,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 - (void)ht_textDidChange:(NSNotification*)notification
 {
-    if (self.text.length == 0 || self.text.length == 1) [self refreshAutocompleteButtonPositionAnimated:YES];
     [self refreshAutocompleteText];
 }
 
@@ -166,6 +165,14 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
         if (dataSource)
         {
             self.autocompleteString = [dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
+
+            if (self.autocompleteString.length > 0)
+            {
+                if (self.text.length == 0 || self.text.length == 1)
+                {
+                    [self updateAutocompleteButtonPositionAnimated:YES];
+                }
+            }
             
             [self updateAutocompleteLabel];
         }
@@ -207,14 +214,26 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self.autocompleteButton.hidden = !_multiRecognitionEnabled;
 }
 
+- (void)setAutocompleteString:(NSString *)autocompleteString
+{
+    _autocompleteString = autocompleteString;
+
+    [self updateAutocompleteButtonPositionAnimated:YES];
+}
+
 #pragma mark - Private Methods
 
-- (CGRect)frameForAutocompleteButton {
+- (CGRect)frameForAutocompleteButton
+{
     CGRect autocompletionButtonRect;
     if (self.clearButtonMode == UITextFieldViewModeNever || self.text.length == 0)
+    {
         autocompletionButtonRect = CGRectMake(self.bounds.size.width - kHTAutoCompleteButtonWidth, (self.bounds.size.height/2) - (self.bounds.size.height-8)/2, kHTAutoCompleteButtonWidth, self.bounds.size.height-8);
+    }
     else
+    {
         autocompletionButtonRect = CGRectMake(self.bounds.size.width - 25 - kHTAutoCompleteButtonWidth, (self.bounds.size.height/2) - (self.bounds.size.height-8)/2, kHTAutoCompleteButtonWidth, self.bounds.size.height-8);
+    }
     return autocompletionButtonRect;
 }
 
@@ -233,14 +252,30 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     }
 }
 
-- (void)refreshAutocompleteButtonPositionAnimated:(BOOL)animated {
-    if (animated) {
-        [UIView animateWithDuration:0.15f animations:^{
+- (void)updateAutocompleteButtonPositionAnimated:(BOOL)animated
+{
+    void (^action)(void) = ^{
+        if (self.autocompleteString.length)
+        {
+            self.autocompleteButton.alpha = 1;
             self.autocompleteButton.frame = [self frameForAutocompleteButton];
+        }
+        else
+        {
+            self.autocompleteButton.alpha = 0;
+        }
+    };
+    
+    if (animated)
+    {
+        [UIView animateWithDuration:0.15f animations:^{
+            action();
         }];
-        return;
     }
-    self.autocompleteButton.frame = [self frameForAutocompleteButton];
+    else
+    {
+        action();
+    }
 }
 
 @end
