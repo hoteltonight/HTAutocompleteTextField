@@ -1,5 +1,5 @@
 //
-//  HTViewController.h
+//  HTSampleFieldsTableViewController.h
 //  HTTextFieldAutocompletionExample
 //
 //  Created by Jonathan Sibley on 12/26/12.
@@ -10,9 +10,9 @@
 #import "HTAutocompleteTextField.h"
 #import "HTEmailAutocompleteTextField.h"
 
-@interface HTViewController : UIViewController <UITextFieldDelegate>
+@interface HTSampleFieldsTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *emailTextField;
-@property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *favoriteColorTextField;
+@property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *nameTextField;
 
 @end

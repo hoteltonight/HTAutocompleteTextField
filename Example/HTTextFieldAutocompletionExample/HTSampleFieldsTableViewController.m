@@ -1,19 +1,19 @@
 //
-//  HTViewController.m
+//  HTSampleFieldsTableViewController.m
 //  HTTextFieldAutocompletionExample
 //
 //  Created by Jonathan Sibley on 12/26/12.
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import "HTViewController.h"
+#import "HTSampleFieldsTableViewController.h"
 #import "HTAutocompleteManager.h"
 
-@interface HTViewController ()
+@interface HTSampleFieldsTableViewController ()
 
 @end
 
-@implementation HTViewController
+@implementation HTSampleFieldsTableViewController
 
 - (void)viewDidLoad
 {
@@ -24,26 +24,17 @@
 
     self.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
 
-    self.favoriteColorTextField.autocompleteType = HTAutocompleteTypeColor;
-    self.favoriteColorTextField.ignoreCase = NO;
+    self.nameTextField.autocompleteType = HTAutocompleteTypeColor;
 
     // Dismiss the keyboard when the user taps outside of a text field
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
 }
 
-- (void)viewDidUnload
-{
-    [self setEmailTextField:nil];
-    [self setFavoriteColorTextField:nil];
-
-    [super viewDidUnload];
-}
-
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender
 {
     [self.emailTextField resignFirstResponder];
-    [self.favoriteColorTextField resignFirstResponder];
+    [self.nameTextField resignFirstResponder];
 }
 
 @end

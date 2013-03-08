@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D73130516DF0E1600B2E903 /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D73130416DF0E1600B2E903 /* HTEmailAutocompleteTextField.m */; };
+		8D86FEEE16E96D4800534BDD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */; };
 		8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A804168B7C610025E16D /* UIKit.framework */; };
 		8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A806168B7C610025E16D /* Foundation.framework */; };
 		8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A808168B7C610025E16D /* CoreGraphics.framework */; };
@@ -17,8 +18,7 @@
 		8DF4A817168B7C610025E16D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A816168B7C610025E16D /* Default.png */; };
 		8DF4A819168B7C610025E16D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A818168B7C610025E16D /* Default@2x.png */; };
 		8DF4A81B168B7C610025E16D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A81A168B7C610025E16D /* Default-568h@2x.png */; };
-		8DF4A81E168B7C610025E16D /* HTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A81D168B7C610025E16D /* HTViewController.m */; };
-		8DF4A821168B7C610025E16D /* HTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A81F168B7C610025E16D /* HTViewController.xib */; };
+		8DF4A81E168B7C610025E16D /* HTSampleFieldsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A81D168B7C610025E16D /* HTSampleFieldsTableViewController.m */; };
 		8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */; };
 		8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A83F168B7F280025E16D /* ht-logo-black.png */; };
 		8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */; };
@@ -28,6 +28,7 @@
 		541886FBCF924E768C27BA1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D73130316DF0E1600B2E903 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
 		8D73130416DF0E1600B2E903 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
+		8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF4A804168B7C610025E16D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DF4A806168B7C610025E16D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,9 +42,8 @@
 		8DF4A816168B7C610025E16D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8DF4A818168B7C610025E16D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8DF4A81A168B7C610025E16D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8DF4A81C168B7C610025E16D /* HTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTViewController.h; sourceTree = "<group>"; };
-		8DF4A81D168B7C610025E16D /* HTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTViewController.m; sourceTree = "<group>"; };
-		8DF4A820168B7C610025E16D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HTViewController.xib; sourceTree = "<group>"; };
+		8DF4A81C168B7C610025E16D /* HTSampleFieldsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSampleFieldsTableViewController.h; sourceTree = "<group>"; };
+		8DF4A81D168B7C610025E16D /* HTSampleFieldsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSampleFieldsTableViewController.m; sourceTree = "<group>"; };
 		8DF4A83C168B7D4E0025E16D /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = ../../HTAutocompleteTextField.h; sourceTree = "<group>"; };
 		8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteTextField.m; path = ../../HTAutocompleteTextField.m; sourceTree = "<group>"; };
 		8DF4A83F168B7F280025E16D /* ht-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ht-logo-black.png"; path = "../../ht-logo-black.png"; sourceTree = "<group>"; };
@@ -97,14 +97,14 @@
 		8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */ = {
 			isa = PBXGroup;
 			children = (
-				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
-				8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */,
 				8DF4A83F168B7F280025E16D /* ht-logo-black.png */,
 				8DF4A813168B7C610025E16D /* HTAppDelegate.h */,
 				8DF4A814168B7C610025E16D /* HTAppDelegate.m */,
-				8DF4A81C168B7C610025E16D /* HTViewController.h */,
-				8DF4A81D168B7C610025E16D /* HTViewController.m */,
-				8DF4A81F168B7C610025E16D /* HTViewController.xib */,
+				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
+				8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */,
+				8DF4A81C168B7C610025E16D /* HTSampleFieldsTableViewController.h */,
+				8DF4A81D168B7C610025E16D /* HTSampleFieldsTableViewController.m */,
+				8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */,
 				8DF4A80B168B7C610025E16D /* Supporting Files */,
 			);
 			path = HTTextFieldAutocompletionExample;
@@ -192,8 +192,8 @@
 				8DF4A817168B7C610025E16D /* Default.png in Resources */,
 				8DF4A819168B7C610025E16D /* Default@2x.png in Resources */,
 				8DF4A81B168B7C610025E16D /* Default-568h@2x.png in Resources */,
-				8DF4A821168B7C610025E16D /* HTViewController.xib in Resources */,
 				8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */,
+				8D86FEEE16E96D4800534BDD /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 			files = (
 				8DF4A811168B7C610025E16D /* main.m in Sources */,
 				8DF4A815168B7C610025E16D /* HTAppDelegate.m in Sources */,
-				8DF4A81E168B7C610025E16D /* HTViewController.m in Sources */,
+				8DF4A81E168B7C610025E16D /* HTSampleFieldsTableViewController.m in Sources */,
 				8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */,
 				8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */,
 				8D73130516DF0E1600B2E903 /* HTEmailAutocompleteTextField.m in Sources */,
@@ -222,14 +222,6 @@
 				8DF4A80E168B7C610025E16D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8DF4A81F168B7C610025E16D /* HTViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8DF4A820168B7C610025E16D /* en */,
-			);
-			name = HTViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
