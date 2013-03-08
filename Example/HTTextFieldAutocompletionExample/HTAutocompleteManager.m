@@ -256,16 +256,34 @@ static HTAutocompleteManager *sharedManager;
         static dispatch_once_t colorOnceToken;
         static NSArray *colorAutocompleteArray;
         dispatch_once(&colorOnceToken, ^
-                      {
-                          colorAutocompleteArray = @[ @"Blue",
-                                                      @"Yellow",
-                                                      @"Green",
-                                                      @"Magenta",
-                                                      @"Yellow",
-                                                      @"Orange",
-                                                      @"Red",
-                                                      @"Cyan"];
-                      });
+        {
+            colorAutocompleteArray = @[ @"Alfred",
+                                        @"Beth",
+                                        @"Carlos",
+                                        @"Daniel",
+                                        @"Ethan",
+                                        @"Fred",
+                                        @"George",
+                                        @"Helen",
+                                        @"Inis",
+                                        @"Jennifer",
+                                        @"Kylie",
+                                        @"Liam"
+                                        @"Melissa",
+                                        @"Noah",
+                                        @"Omar",
+                                        @"Penelope",
+                                        @"Quan",
+                                        @"Rachel",
+                                        @"Seth"
+                                        @"Timothy",
+                                        @"Ulga",
+                                        @"Vanessa",
+                                        @"William",
+                                        @"Xao",
+                                        @"Yilton",
+                                        @"Zander"];
+        });
 
         NSString *stringToLookFor;
 		NSArray *componentsString = [prefix componentsSeparatedByString:@","];

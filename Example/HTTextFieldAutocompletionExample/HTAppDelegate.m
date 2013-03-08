@@ -8,19 +8,12 @@
 
 #import "HTAppDelegate.h"
 
-#import "HTViewController.h"
-
 @implementation HTAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[HTViewController alloc] initWithNibName:@"HTViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
-}
+//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+//{
+//    return YES;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

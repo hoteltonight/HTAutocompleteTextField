@@ -50,9 +50,10 @@
 + (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
 
 /*
- * Subclassing: override this method to alter the position of the autocomplete text
+ * Subclassing:
  */
-- (CGRect)autocompleteRectForBounds:(CGRect)bounds;
+- (CGRect)autocompleteRectForBounds:(CGRect)bounds; // Override to alter the position of the autocomplete text
+- (void)setupAutocompleteTextField; // Override to perform setup tasks.  Don't forget to call super.
 
 /*
  * Refresh the autocomplete text manually (useful if you want the text to change while the user isn't editing the text)
