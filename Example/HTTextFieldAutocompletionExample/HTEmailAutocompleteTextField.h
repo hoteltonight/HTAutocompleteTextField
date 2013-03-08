@@ -10,4 +10,9 @@
 
 @interface HTEmailAutocompleteTextField : HTAutocompleteTextField <HTAutocompleteDataSource>
 
+/*
+ * A list of email domains to suggest
+ */
+@property (nonatomic, copy) NSArray *emailDomains; // modify to use your own custom list of email domains
+
 @end
