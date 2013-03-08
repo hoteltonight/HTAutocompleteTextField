@@ -18,14 +18,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Set a default data source for all instances.  Otherwise, you can specify the data source on individual text fields via the autocompleteDataSource property
     [HTAutocompleteTextField setDefaultAutocompleteDataSource:[HTAutocompleteManager sharedManager]];
+    
 
     self.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
 
     self.nameTextField.autocompleteType = HTAutocompleteTypeColor;
-
+    
     // Dismiss the keyboard when the user taps outside of a text field
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];

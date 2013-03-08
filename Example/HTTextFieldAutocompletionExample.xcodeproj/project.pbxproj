@@ -22,6 +22,8 @@
 		8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */; };
 		8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A83F168B7F280025E16D /* ht-logo-black.png */; };
 		8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */; };
+		C80AC03D16DF7B4100755F19 /* autocompleteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C80AC03B16DF7B4100755F19 /* autocompleteButton@2x.png */; };
+		C80AC03E16DF7B4100755F19 /* autocompleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C80AC03C16DF7B4100755F19 /* autocompleteButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		8DF4A83F168B7F280025E16D /* ht-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ht-logo-black.png"; path = "../../ht-logo-black.png"; sourceTree = "<group>"; };
 		8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteManager.h; sourceTree = "<group>"; };
 		8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteManager.m; sourceTree = "<group>"; };
+		C80AC03B16DF7B4100755F19 /* autocompleteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "autocompleteButton@2x.png"; sourceTree = "<group>"; };
+		C80AC03C16DF7B4100755F19 /* autocompleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autocompleteButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,9 @@
 		8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */ = {
 			isa = PBXGroup;
 			children = (
+				C80AC03F16DF7B5D00755F19 /* images */,
+				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
+				8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */,
 				8DF4A83F168B7F280025E16D /* ht-logo-black.png */,
 				8DF4A813168B7C610025E16D /* HTAppDelegate.h */,
 				8DF4A814168B7C610025E16D /* HTAppDelegate.m */,
@@ -134,6 +141,15 @@
 			);
 			name = Core;
 			path = HTTextFieldAutocompletionExample;
+			sourceTree = "<group>";
+		};
+		C80AC03F16DF7B5D00755F19 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C80AC03B16DF7B4100755F19 /* autocompleteButton@2x.png */,
+				C80AC03C16DF7B4100755F19 /* autocompleteButton.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +209,9 @@
 				8DF4A819168B7C610025E16D /* Default@2x.png in Resources */,
 				8DF4A81B168B7C610025E16D /* Default-568h@2x.png in Resources */,
 				8DF4A840168B7F280025E16D /* ht-logo-black.png in Resources */,
+				C80AC03D16DF7B4100755F19 /* autocompleteButton@2x.png in Resources */,
 				8D86FEEE16E96D4800534BDD /* MainStoryboard.storyboard in Resources */,
+				C80AC03E16DF7B4100755F19 /* autocompleteButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
