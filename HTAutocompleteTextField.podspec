@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/hoteltonight/HTAutocompleteTextField.git", :tag => "1.1" }
   s.platform     = :ios
   s.ios.deployment_target = '4.3'
-  s.source_files = 'HTAutocompleteTextField.{h,m}'
+  s.source_files = '*.{h,m}'
   s.requires_arc = true
 end
