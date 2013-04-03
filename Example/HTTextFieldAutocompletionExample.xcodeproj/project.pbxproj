@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D73130516DF0E1600B2E903 /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D73130416DF0E1600B2E903 /* HTEmailAutocompleteTextField.m */; };
+		8D478BA0170CB0DE00DD6121 /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D478B9F170CB0DE00DD6121 /* HTEmailAutocompleteTextField.m */; };
 		8D86FEEE16E96D4800534BDD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */; };
 		8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A804168B7C610025E16D /* UIKit.framework */; };
 		8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A806168B7C610025E16D /* Foundation.framework */; };
@@ -28,8 +28,8 @@
 
 /* Begin PBXFileReference section */
 		541886FBCF924E768C27BA1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D73130316DF0E1600B2E903 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
-		8D73130416DF0E1600B2E903 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
+		8D478B9E170CB0DE00DD6121 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
+		8D478B9F170CB0DE00DD6121 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
 		8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF4A804168B7C610025E16D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -134,10 +134,10 @@
 		8DF4A83A168B7CFC0025E16D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8D478B9E170CB0DE00DD6121 /* HTEmailAutocompleteTextField.h */,
+				8D478B9F170CB0DE00DD6121 /* HTEmailAutocompleteTextField.m */,
 				8DF4A83C168B7D4E0025E16D /* HTAutocompleteTextField.h */,
 				8DF4A83D168B7D4E0025E16D /* HTAutocompleteTextField.m */,
-				8D73130316DF0E1600B2E903 /* HTEmailAutocompleteTextField.h */,
-				8D73130416DF0E1600B2E903 /* HTEmailAutocompleteTextField.m */,
 			);
 			name = Core;
 			path = HTTextFieldAutocompletionExample;
@@ -227,7 +227,7 @@
 				8DF4A81E168B7C610025E16D /* HTSampleFieldsTableViewController.m in Sources */,
 				8DF4A83E168B7D4E0025E16D /* HTAutocompleteTextField.m in Sources */,
 				8DF4A84B168B80CD0025E16D /* HTAutocompleteManager.m in Sources */,
-				8D73130516DF0E1600B2E903 /* HTEmailAutocompleteTextField.m in Sources */,
+				8D478BA0170CB0DE00DD6121 /* HTEmailAutocompleteTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
