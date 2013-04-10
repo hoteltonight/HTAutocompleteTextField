@@ -51,7 +51,14 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     self.autocompleteLabel.font = self.font;
     self.autocompleteLabel.backgroundColor = [UIColor clearColor];
     self.autocompleteLabel.textColor = [UIColor lightGrayColor];
-    self.autocompleteLabel.lineBreakMode = UILineBreakModeClip;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
+    NSLineBreakMode lineBreakMode = NSLineBreakByClipping;
+#else
+    UILineBreakMode lineBreakMode = UILineBreakModeClip;
+#endif
+    
+    self.autocompleteLabel.lineBreakMode = lineBreakMode;
     self.autocompleteLabel.hidden = YES;
     [self addSubview:self.autocompleteLabel];
     [self bringSubviewToFront:self.autocompleteLabel];
@@ -134,13 +141,19 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     CGRect returnRect = CGRectZero;
     CGRect textRect = [self textRectForBounds:self.bounds];
     
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
+    NSLineBreakMode lineBreakMode = NSLineBreakByCharWrapping;
+#else
+    UILineBreakMode lineBreakMode = UILineBreakModeCharacterWrap;
+#endif
+    
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
-                                      lineBreakMode:UILineBreakModeCharacterWrap];
+                                      lineBreakMode:lineBreakMode];
     
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
                                                       constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
-                                                          lineBreakMode:UILineBreakModeCharacterWrap];
+                                                          lineBreakMode:lineBreakMode];
     
     returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
                             textRect.origin.y + self.autocompleteTextOffset.y,
