@@ -235,7 +235,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     [self updateAutocompleteButtonAnimated:YES];
 }
 
-- (void)setShowAutocompleteButton:(BOOL *)showAutocompleteButton
+- (void)setShowAutocompleteButton:(BOOL)showAutocompleteButton
 {
     _showAutocompleteButton = showAutocompleteButton;
 
