@@ -34,7 +34,7 @@
 @property (nonatomic, assign) BOOL autocompleteDisabled;
 @property (nonatomic, assign) BOOL ignoreCase;
 @property (nonatomic, assign) BOOL needsClearButtonSpace;
-@property (nonatomic, assign) BOOL *showAutocompleteButton;
+@property (nonatomic, assign) BOOL showAutocompleteButton;
 
 /*
  * Configure text field appearance
