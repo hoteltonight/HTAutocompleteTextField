@@ -261,16 +261,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 // Method fired by autocompleteButton for multiRecognition
 - (void)autocompleteText:(id)sender
 {
-    if (!self.autocompleteDisabled)
-    {
-        self.autocompleteLabel.hidden = NO;
-        
-        [self commitAutocompleteText];
-        
-        // This is necessary because committing the autocomplete text changes the text field's text, but for some reason UITextField doesn't post the UITextFieldTextDidChangeNotification notification on its own
-        [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
-                                                            object:self];
-    }
+    [self resignFirstResponder];
 }
 
 - (void)updateAutocompleteButtonAnimated:(BOOL)animated
