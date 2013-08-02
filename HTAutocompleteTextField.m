@@ -285,6 +285,10 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
         {
             self.autocompleteButton.alpha = 0;
         }
+        // Needed to ensure button really is brought to front
+        // and doesn't require user to 'double tap' to dismiss
+        // copy/paste popup first
+        [self bringSubviewToFront:self.autocompleteButton];
     };
     
     if (animated)
