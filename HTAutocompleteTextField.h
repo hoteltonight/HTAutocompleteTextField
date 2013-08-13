@@ -20,6 +20,14 @@
 
 @end
 
+@protocol HTAutocompleteTextFieldDelegate <NSObject>
+
+@optional
+- (void)autoCompleteTextFieldDidAutoComplete:(HTAutocompleteTextField *)autoCompleteField;
+- (void)autocompleteTextField:(HTAutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
+
+@end
+
 @interface HTAutocompleteTextField : UITextField
 
 /*
@@ -35,6 +43,7 @@
 @property (nonatomic, assign) BOOL ignoreCase;
 @property (nonatomic, assign) BOOL needsClearButtonSpace;
 @property (nonatomic, assign) BOOL showAutocompleteButton;
+@property (nonatomic, assign) id<HTAutocompleteTextFieldDelegate> autoCompleteTextFieldDelegate;
 
 /*
  * Configure text field appearance
