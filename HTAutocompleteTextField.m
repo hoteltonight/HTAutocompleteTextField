@@ -173,6 +173,10 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     [self.autocompleteLabel setText:self.autocompleteString];
     [self.autocompleteLabel sizeToFit];
     [self.autocompleteLabel setFrame: [self autocompleteRectForBounds:self.bounds]];
+	
+	if ([self.autoCompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextField:didChangeAutocompleteText:)]) {
+		[self.autoCompleteTextFieldDelegate autocompleteTextField:self didChangeAutocompleteText:self.autocompleteString];
+	}
 }
 
 - (void)refreshAutocompleteText
@@ -217,6 +221,10 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
         
         self.autocompleteString = @"";
         [self updateAutocompleteLabel];
+		
+		if ([self.autoCompleteTextFieldDelegate respondsToSelector:@selector(autoCompleteTextFieldDidAutoComplete:)]) {
+			[self.autoCompleteTextFieldDelegate autoCompleteTextFieldDidAutoComplete:self];
+		}
     }
     return ![currentText isEqualToString:self.text];
 }
