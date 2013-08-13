@@ -60,6 +60,10 @@ To adjust the properties (i.e. `font`, `textColor`) of the autocomplete label, d
 
     textField.autocompleteLabel.textColor = [UIColor grayColor];
     
+## Event Listening
+
+In addition to observing the standard `UITextField` notifications (i.e. `UITextFieldTextDidChangeNotification` and friends), you can use `[HTAutocompleteTextField autoCompleteTextFieldDelegate]` to listen for certain events.  This is particularly useful if you are collecting analytics.
+    
 # Etc.
 
 * Use this in your apps whenever you can, particularly email addresses -- your users will appreciate it!
