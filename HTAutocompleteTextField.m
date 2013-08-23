@@ -117,11 +117,11 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
-                                      lineBreakMode:UILineBreakModeCharacterWrap];
+                                      lineBreakMode:NSLineBreakByCharWrapping];
     
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
-                                                      lineBreakMode:UILineBreakModeCharacterWrap];
+                                                      lineBreakMode:NSLineBreakByCharWrapping];
     
     returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
                             textRect.origin.y + self.autocompleteTextOffset.y,
