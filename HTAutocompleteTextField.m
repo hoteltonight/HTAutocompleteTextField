@@ -146,14 +146,31 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 #else
     UILineBreakMode lineBreakMode = UILineBreakModeCharacterWrap;
 #endif
-    
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    paragraphStyle.lineBreakMode = lineBreakMode;
+    NSDictionary *attributes = @{NSFontAttributeName:self.font, NSParagraphStyleAttributeName:paragraphStyle};
+    CGRect prefixTextRect =
+    [self.text boundingRectWithSize:textRect.size
+                            options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                         attributes:attributes context:nil];
+    CGSize prefixTextSize = prefixTextRect.size;
+
+    CGRect autocompleteTextRect =
+    [self.autocompleteString boundingRectWithSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
+                                          options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                       attributes:attributes context:nil];
+    CGSize autocompleteTextSize = autocompleteTextRect.size;
+#else
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
                                       lineBreakMode:lineBreakMode];
-    
+
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
                                                       constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
                                                           lineBreakMode:lineBreakMode];
+#endif
     
     returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
                             textRect.origin.y + self.autocompleteTextOffset.y,
