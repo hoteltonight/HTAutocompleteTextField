@@ -1,4 +1,4 @@
 language: objective-c
 
 env:
-	- XCWORKSPACE=Example/HTTextFieldAutocompletionExample.xcodeproj
+  - XCWORKSPACE=Example/HTTextFieldAutocompletionExample.xcodeproj
