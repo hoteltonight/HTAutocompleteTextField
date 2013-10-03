@@ -1,3 +1,3 @@
 language: objective-c
 
-env: XCWORKSPACE="Example/HTextFieldAutocompletionExample.xcodeproj"
+env: XCWORKSPACE="Example/HTTextFieldAutocompletionExample.xcodeproj"
