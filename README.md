@@ -2,8 +2,6 @@
 
 # HTAutocompleteTextField
 
-<img src="https://travis-ci.org/hoteltonight/HTAutocompleteTextField.png" />
-
 ## Overview
 
 HTAutocompleteTextField is a subclass of UITextField that automatically displays text suggestions in real-time.  This is perfect for automatically suggesting the domain as a user types an email address.
