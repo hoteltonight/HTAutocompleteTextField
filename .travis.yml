@@ -1,1 +1,3 @@
 language: objective-c
+
+env: XCWORKSPACE="Example/TTextFieldAutocompletionExample.xcodeproj"
