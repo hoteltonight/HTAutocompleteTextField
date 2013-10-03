@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>29E42085-1ED1-4EF5-88FA-9B229318924A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HTTextFieldAutocompletionExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>91ABCBDB-BF42-4AA8-8080-7C8C47DD12B3</key>
+		<string>https://github.com/hoteltonight/HTAutocompleteTextField.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HTTextFieldAutocompletionExample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>91ABCBDB-BF42-4AA8-8080-7C8C47DD12B3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hoteltonight/HTAutocompleteTextField.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>91ABCBDB-BF42-4AA8-8080-7C8C47DD12B3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>91ABCBDB-BF42-4AA8-8080-7C8C47DD12B3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HTAutocompleteTextField</string>
+		</dict>
+	</array>
+</dict>
+</plist>
