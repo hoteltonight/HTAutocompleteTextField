@@ -42,7 +42,7 @@ The data source is the brains of the autocomplete logic.  If you just want to au
 
 Alternatively, you may wish to create your own data source class and user the `autocompleteType` property to differentiate between fields with different data types.  A `HTAutocompleteTextFields`'s data source must implement the following method, as part of the `HTAutocompleteDataSource` protocol.
 
-    - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
+    - (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix ignoreCase:(BOOL)ignoreCase
 
 You may also set a default `dataSource` for all instances of `HTAutocompleteTextField`.  In the example project, we use a `HTAutocompleteManager` singleton:
 

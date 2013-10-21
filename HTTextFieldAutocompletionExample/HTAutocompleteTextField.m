@@ -231,7 +231,7 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 - (BOOL)commitAutocompleteText
 {
     NSString *currentText = self.text;
-    if ([self.autocompleteString isEqualToString:@""] == NO
+    if (self.autocompleteString.length > 0
         && self.autocompleteDisabled == NO)
     {
         self.text = [NSString stringWithFormat:@"%@%@", self.text, self.autocompleteString];
