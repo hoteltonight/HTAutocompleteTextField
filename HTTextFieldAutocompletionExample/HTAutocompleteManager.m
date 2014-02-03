@@ -268,14 +268,14 @@ static HTAutocompleteManager *sharedManager;
                                         @"Inis",
                                         @"Jennifer",
                                         @"Kylie",
-                                        @"Liam"
+                                        @"Liam",
                                         @"Melissa",
                                         @"Noah",
                                         @"Omar",
                                         @"Penelope",
                                         @"Quan",
                                         @"Rachel",
-                                        @"Seth"
+                                        @"Seth",
                                         @"Timothy",
                                         @"Ulga",
                                         @"Vanessa",
