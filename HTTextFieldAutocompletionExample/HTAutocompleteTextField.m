@@ -190,7 +190,8 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     [self.autocompleteLabel setText:self.autocompleteString];
     [self.autocompleteLabel sizeToFit];
     [self.autocompleteLabel setFrame: [self autocompleteRectForBounds:self.bounds]];
-	
+    [self sendActionsForControlEvents:UIControlEventEditingChanged];
+    
 	if ([self.autoCompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextField:didChangeAutocompleteText:)]) {
 		[self.autoCompleteTextFieldDelegate autocompleteTextField:self didChangeAutocompleteText:self.autocompleteString];
 	}
