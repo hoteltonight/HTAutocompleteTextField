@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "HTAutocompleteTextField.h"
 #import "HTEmailAutocompleteTextField.h"
+#import "HTAddressAutocompleteTextField.h"
 
 @interface HTSampleFieldsTableViewController : UITableViewController <UITextFieldDelegate>
-
+@property (unsafe_unretained, nonatomic) IBOutlet HTAddressAutocompleteTextField *addressField;
 @property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *emailTextField;
 @property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *nameTextField;
 @property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *asyncEmailTextField;
