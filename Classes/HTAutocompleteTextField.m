@@ -20,7 +20,6 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 @end
 
 @implementation HTAutocompleteTextField
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
