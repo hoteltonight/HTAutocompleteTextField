@@ -17,7 +17,7 @@
 - (NSString*)textField:(HTAutocompleteTextField*)textField
    completionForPrefix:(NSString*)prefix
             ignoreCase:(BOOL)ignoreCase;
-
+- (BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField*)textField;
 @end
 
 @protocol HTAutocompleteTextFieldDelegate <NSObject>
@@ -25,7 +25,6 @@
 @optional
 - (void)autoCompleteTextFieldDidAutoComplete:(HTAutocompleteTextField *)autoCompleteField;
 - (void)autocompleteTextField:(HTAutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
-
 @end
 
 @interface HTAutocompleteTextField : UITextField
