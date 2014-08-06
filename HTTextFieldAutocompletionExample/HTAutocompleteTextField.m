@@ -252,7 +252,27 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 }
 
 #pragma mark - Accessors
+@synthesize autocompleteString = _autocompleteString;
 
+-(NSString *)autocompleteString {
+    id<HTAutocompleteDataSource> datasource;
+    if([self.autocompleteDataSource respondsToSelector:@selector(textFieldShouldReplaceCompletion:)]) {
+        datasource = self.autocompleteDataSource;
+    } else if([DefaultAutocompleteDataSource respondsToSelector:@selector(textFieldShouldReplaceCompletion:)]) {
+        datasource = DefaultAutocompleteDataSource;
+    }
+
+    if([datasource textFieldShouldReplaceCompletion:self]) {
+        NSStringCompareOptions *options = self.ignoreCase? NSCaseInsensitiveSearch : 0;
+
+        if([_autocompleteString rangeOfString:self.text options:options].location == 0){
+            return [_autocompleteString substringFromIndex:self.text.length];
+        } else {
+            return @"";
+        }
+    }
+    return _autocompleteString;
+}
 - (void)setAutocompleteString:(NSString *)autocompleteString
 {
     _autocompleteString = autocompleteString;

@@ -20,6 +20,12 @@ static HTAutocompleteManager *sharedManager;
 }
 
 #pragma mark - HTAutocompleteTextFieldDelegate
+-(BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField *)textField {
+    if (textField.autocompleteType == HTAutocompleteTypeColor){
+        return YES;
+    }
+    return NO;
+}
 
 - (NSString *)textField:(HTAutocompleteTextField *)textField
     completionForPrefix:(NSString *)prefix
@@ -311,9 +317,8 @@ static HTAutocompleteManager *sharedManager;
             
             if ([stringToCompare hasPrefix:stringToLookFor])
             {
-                return [stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""];
+                return stringFromReference;
             }
-            
         }
     }
     
