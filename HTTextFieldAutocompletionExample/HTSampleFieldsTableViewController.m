@@ -8,6 +8,7 @@
 
 #import "HTSampleFieldsTableViewController.h"
 #import "HTAutocompleteManager.h"
+#import "HTAsyncAutocompleteManager.h"
 
 @interface HTSampleFieldsTableViewController ()
 
@@ -24,9 +25,14 @@
     
 
     self.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
-
     self.nameTextField.autocompleteType = HTAutocompleteTypeColor;
+
+    self.asyncEmailTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    self.asyncNameTextField.autocompleteType = HTAutocompleteTypeColor;
     
+    self.asyncEmailTextField.autocompleteDataSource = [HTAsyncAutocompleteManager sharedManager];
+    self.asyncNameTextField.autocompleteDataSource = [HTAsyncAutocompleteManager sharedManager];
+
     // Dismiss the keyboard when the user taps outside of a text field
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
@@ -36,6 +42,8 @@
 {
     [self.emailTextField resignFirstResponder];
     [self.nameTextField resignFirstResponder];
+    [self.asyncEmailTextField resignFirstResponder];
+    [self.asyncNameTextField resignFirstResponder];
 }
 
 @end
