@@ -103,8 +103,6 @@
 			children = (
 				8DFB04B117FD01AB00E7B196 /* ht-logo-black.png */,
 				C80AC03F16DF7B5D00755F19 /* images */,
-				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
-				8DF4A84A168B80CD0025E16D /* HTAutocompleteManager.m */,
 				8DF4A813168B7C610025E16D /* HTAppDelegate.h */,
 				8DF4A814168B7C610025E16D /* HTAppDelegate.m */,
 				8DF4A849168B80CD0025E16D /* HTAutocompleteManager.h */,
