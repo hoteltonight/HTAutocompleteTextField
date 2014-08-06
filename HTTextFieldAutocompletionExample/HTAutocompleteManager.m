@@ -230,7 +230,9 @@ static HTAutocompleteManager *sharedManager;
             {
                 stringToLookFor = textAfterAtSign;
             }
-            
+            if(!stringToLookFor) {
+                return @"";
+            }
             for (NSString *stringFromReference in autocompleteArray)
             {
                 NSString *stringToCompare;

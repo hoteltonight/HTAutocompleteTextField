@@ -232,7 +232,9 @@ static HTAsyncAutocompleteManager *sharedManager;
             {
                 stringToLookFor = textAfterAtSign;
             }
-
+            if(!stringToLookFor) {
+                return completionHandler(@"");
+            }
             for (NSString *stringFromReference in autocompleteArray)
             {
                 NSString *stringToCompare;
