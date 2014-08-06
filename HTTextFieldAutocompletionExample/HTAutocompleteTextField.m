@@ -15,14 +15,11 @@
 static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
 @interface HTAutocompleteTextField ()
-
 @property (nonatomic, strong) NSString *autocompleteString;
 @property (nonatomic, strong) UIButton *autocompleteButton;
-
 @end
 
 @implementation HTAutocompleteTextField
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -202,30 +199,45 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
     {
         id <HTAutocompleteDataSource> dataSource = nil;
         
-        if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        if ([self.autocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)] || [self.autocompleteDataSource respondsToSelector:@selector(textField:asyncCompletionForPrefix:ignoreCase:completionHandler:)])
         {
             dataSource = (id <HTAutocompleteDataSource>)self.autocompleteDataSource;
         }
-        else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)])
+        else if ([DefaultAutocompleteDataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)] || [DefaultAutocompleteDataSource respondsToSelector:@selector(textField:asyncCompletionForPrefix:ignoreCase:completionHandler:)])
         {
             dataSource = DefaultAutocompleteDataSource;
         }
         
         if (dataSource)
         {
-            self.autocompleteString = [dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase];
+            if([dataSource respondsToSelector:@selector(textField:completionForPrefix:ignoreCase:)]){
+                [self completeRefreshText:[dataSource textField:self completionForPrefix:self.text ignoreCase:self.ignoreCase]];
 
-            if (self.autocompleteString.length > 0)
-            {
-                if (self.text.length == 0 || self.text.length == 1)
-                {
-                    [self updateAutocompleteButtonAnimated:YES];
-                }
+            } else if([dataSource respondsToSelector:@selector(textField:asyncCompletionForPrefix:ignoreCase:completionHandler:)]){
+                [self updateAutocompleteLabel];
+                NSString *asyncText = self.text.copy;
+                [dataSource textField:self asyncCompletionForPrefix:self.text ignoreCase:self.ignoreCase completionHandler:^(NSString *completion) {
+                    if([self.text isEqualToString:asyncText]) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self completeRefreshText:completion];
+                        });
+                    }
+                }];
             }
-            
-            [self updateAutocompleteLabel];
         }
     }
+}
+
+-(void)completeRefreshText:(NSString *)text {
+    self.autocompleteString = text;
+    if (self.autocompleteString.length > 0)
+    {
+        if (self.text.length == 0 || self.text.length == 1)
+        {
+            [self updateAutocompleteButtonAnimated:YES];
+        }
+    }
+    [self updateAutocompleteLabel];
 }
 
 - (BOOL)commitAutocompleteText

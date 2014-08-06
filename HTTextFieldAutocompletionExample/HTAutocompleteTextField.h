@@ -9,15 +9,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @class  HTAutocompleteTextField;
 
 @protocol HTAutocompleteDataSource <NSObject>
-
+@optional
 - (NSString*)textField:(HTAutocompleteTextField*)textField
    completionForPrefix:(NSString*)prefix
             ignoreCase:(BOOL)ignoreCase;
 
+- (void)textField:(HTAutocompleteTextField*)textField
+   asyncCompletionForPrefix:(NSString*)prefix
+            ignoreCase:(BOOL)ignoreCase
+            completionHandler:(void (^)(NSString *completion))completionHandler;
 @end
 
 @protocol HTAutocompleteTextFieldDelegate <NSObject>
@@ -55,7 +58,7 @@
 /*
  * Specify a data source responsible for determining autocomplete text.
  */
-@property (nonatomic, assign) id<HTAutocompleteDataSource> autocompleteDataSource;
+@property (nonatomic, weak) id<HTAutocompleteDataSource> autocompleteDataSource;
 + (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
 
 /*
