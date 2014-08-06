@@ -21,7 +21,9 @@ static HTAsyncAutocompleteManager *sharedManager;
 }
 
 #pragma mark - HTAutocompleteTextFieldDelegate
-
+- (BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField*)textField {
+    return NO;
+}
 - (void)textField:(HTAutocompleteTextField *)textField
     asyncCompletionForPrefix:(NSString *)prefix
                 ignoreCase:(BOOL)ignoreCase
