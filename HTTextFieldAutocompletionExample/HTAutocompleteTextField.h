@@ -41,7 +41,6 @@
 @property (nonatomic, assign) NSUInteger autocompleteType; // Can be used by the dataSource to provide different types of autocomplete behavior
 @property (nonatomic, assign) BOOL autocompleteDisabled;
 @property (nonatomic, assign) BOOL ignoreCase;
-@property (nonatomic, assign) BOOL needsClearButtonSpace;
 @property (nonatomic, assign) BOOL showAutocompleteButton;
 @property (nonatomic, assign) id<HTAutocompleteTextFieldDelegate> autoCompleteTextFieldDelegate;
 
