@@ -55,8 +55,8 @@
 		8DFB04B117FD01AB00E7B196 /* ht-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ht-logo-black.png"; sourceTree = "<group>"; };
 		8DFB04B317FD01F500E7B196 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
 		8DFB04B417FD01F500E7B196 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
-		8DFB04B517FD01F500E7B196 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
-		8DFB04B617FD01F500E7B196 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		8DFB04B517FD01F500E7B196 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteTextField.m; path = ../Classes/HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		8DFB04B617FD01F500E7B196 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = ../Classes/HTAutocompleteTextField.h; sourceTree = "<group>"; };
 		C80AC03B16DF7B4100755F19 /* autocompleteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "autocompleteButton@2x.png"; sourceTree = "<group>"; };
 		C80AC03C16DF7B4100755F19 /* autocompleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autocompleteButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
