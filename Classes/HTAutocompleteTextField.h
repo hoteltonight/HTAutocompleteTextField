@@ -9,15 +9,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @class  HTAutocompleteTextField;
 
 @protocol HTAutocompleteDataSource <NSObject>
-
+@optional
 - (NSString*)textField:(HTAutocompleteTextField*)textField
    completionForPrefix:(NSString*)prefix
             ignoreCase:(BOOL)ignoreCase;
-
+- (void)textField:(HTAutocompleteTextField*)textField
+   asyncCompletionForPrefix:(NSString*)prefix
+            ignoreCase:(BOOL)ignoreCase
+            completionHandler:(void (^)(NSString *completion))completionHandler;
+- (BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField*)textField;
 @end
 
 @protocol HTAutocompleteTextFieldDelegate <NSObject>
@@ -25,7 +28,6 @@
 @optional
 - (void)autoCompleteTextFieldDidAutoComplete:(HTAutocompleteTextField *)autoCompleteField;
 - (void)autocompleteTextField:(HTAutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
-
 @end
 
 @interface HTAutocompleteTextField : UITextField
@@ -41,7 +43,6 @@
 @property (nonatomic, assign) NSUInteger autocompleteType; // Can be used by the dataSource to provide different types of autocomplete behavior
 @property (nonatomic, assign) BOOL autocompleteDisabled;
 @property (nonatomic, assign) BOOL ignoreCase;
-@property (nonatomic, assign) BOOL needsClearButtonSpace;
 @property (nonatomic, assign) BOOL showAutocompleteButton;
 @property (nonatomic, assign) id<HTAutocompleteTextFieldDelegate> autoCompleteTextFieldDelegate;
 
@@ -55,7 +56,7 @@
 /*
  * Specify a data source responsible for determining autocomplete text.
  */
-@property (nonatomic, assign) id<HTAutocompleteDataSource> autocompleteDataSource;
+@property (nonatomic, weak) id<HTAutocompleteDataSource> autocompleteDataSource;
 + (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
 
 /*

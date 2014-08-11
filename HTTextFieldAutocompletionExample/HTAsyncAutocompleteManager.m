@@ -1,35 +1,33 @@
 //
-//  HTAutocompleteManager.m
-//  HotelTonight
+//  HTAsyncAutocompleteManager.m
+//  HTTextFieldAutocompletionExample
 //
-//  Created by Jonathan Sibley on 12/6/12.
-//  Copyright (c) 2012 Hotel Tonight. All rights reserved.
+//  Created by Kav Latiolais on 8/6/14.
+//  Copyright (c) 2014 Hotel Tonight. All rights reserved.
 //
 
+#import "HTAsyncAutocompleteManager.h"
 #import "HTAutocompleteManager.h"
 
-static HTAutocompleteManager *sharedManager;
+static HTAsyncAutocompleteManager *sharedManager;
 
-@implementation HTAutocompleteManager
+@implementation HTAsyncAutocompleteManager
 
-+ (HTAutocompleteManager *)sharedManager
++ (HTAsyncAutocompleteManager *)sharedManager
 {
 	static dispatch_once_t done;
-	dispatch_once(&done, ^{ sharedManager = [[HTAutocompleteManager alloc] init]; });
+	dispatch_once(&done, ^{ sharedManager = [[HTAsyncAutocompleteManager alloc] init]; });
 	return sharedManager;
 }
 
 #pragma mark - HTAutocompleteTextFieldDelegate
--(BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField *)textField {
-    if (textField.autocompleteType == HTAutocompleteTypeColor){
-        return YES;
-    }
+- (BOOL)textFieldShouldReplaceCompletion:(HTAutocompleteTextField*)textField {
     return NO;
 }
-
-- (NSString *)textField:(HTAutocompleteTextField *)textField
-    completionForPrefix:(NSString *)prefix
-             ignoreCase:(BOOL)ignoreCase
+- (void)textField:(HTAutocompleteTextField *)textField
+    asyncCompletionForPrefix:(NSString *)prefix
+                ignoreCase:(BOOL)ignoreCase
+      completionHandler:(void (^)(NSString *))completionHandler
 {
     if (textField.autocompleteType == HTAutocompleteTypeEmail)
     {
@@ -194,39 +192,39 @@ static HTAutocompleteManager *sharedManager;
                                                   @"temple.edu",
                                                   @"cinci.rr.com"];
                       });
-        
+
         // Check that text field contains an @
         NSRange atSignRange = [prefix rangeOfString:@"@"];
         if (atSignRange.location == NSNotFound)
         {
-            return @"";
+            return completionHandler(@"");
         }
-        
+
         // Stop autocomplete if user types dot after domain
         NSString *domainAndTLD = [prefix substringFromIndex:atSignRange.location];
         NSRange rangeOfDot = [domainAndTLD rangeOfString:@"."];
         if (rangeOfDot.location != NSNotFound)
         {
-            return @"";
+            return completionHandler(@"");
         }
-        
+
         // Check that there aren't two @-signs
         NSArray *textComponents = [prefix componentsSeparatedByString:@"@"];
         if ([textComponents count] > 2)
         {
-            return @"";
+            return completionHandler(@"");
         }
-        
+
         if ([textComponents count] > 1)
         {
             // If no domain is entered, use the first domain in the list
             if ([(NSString *)textComponents[1] length] == 0)
             {
-                return [autocompleteArray objectAtIndex:0];
+                return completionHandler([autocompleteArray objectAtIndex:0]);
             }
-            
+
             NSString *textAfterAtSign = textComponents[1];
-            
+
             NSString *stringToLookFor;
             if (ignoreCase)
             {
@@ -236,7 +234,7 @@ static HTAutocompleteManager *sharedManager;
             {
                 stringToLookFor = textAfterAtSign;
             }
-            
+
             for (NSString *stringFromReference in autocompleteArray)
             {
                 NSString *stringToCompare;
@@ -248,12 +246,12 @@ static HTAutocompleteManager *sharedManager;
                 {
                     stringToCompare = stringFromReference;
                 }
-                
+
                 if ([stringToCompare hasPrefix:stringToLookFor])
                 {
-                    return [stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""];
+                    return completionHandler([stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""]);
                 }
-                
+
             }
         }
     }
@@ -262,34 +260,34 @@ static HTAutocompleteManager *sharedManager;
         static dispatch_once_t colorOnceToken;
         static NSArray *colorAutocompleteArray;
         dispatch_once(&colorOnceToken, ^
-        {
-            colorAutocompleteArray = @[ @"Alfred",
-                                        @"Beth",
-                                        @"Carlos",
-                                        @"Daniel",
-                                        @"Ethan",
-                                        @"Fred",
-                                        @"George",
-                                        @"Helen",
-                                        @"Inis",
-                                        @"Jennifer",
-                                        @"Kylie",
-                                        @"Liam",
-                                        @"Melissa",
-                                        @"Noah",
-                                        @"Omar",
-                                        @"Penelope",
-                                        @"Quan",
-                                        @"Rachel",
-                                        @"Seth",
-                                        @"Timothy",
-                                        @"Ulga",
-                                        @"Vanessa",
-                                        @"William",
-                                        @"Xao",
-                                        @"Yilton",
-                                        @"Zander"];
-        });
+                      {
+                          colorAutocompleteArray = @[ @"Alfred",
+                                                      @"Beth",
+                                                      @"Carlos",
+                                                      @"Daniel",
+                                                      @"Ethan",
+                                                      @"Fred",
+                                                      @"George",
+                                                      @"Helen",
+                                                      @"Inis",
+                                                      @"Jennifer",
+                                                      @"Kylie",
+                                                      @"Liam",
+                                                      @"Melissa",
+                                                      @"Noah",
+                                                      @"Omar",
+                                                      @"Penelope",
+                                                      @"Quan",
+                                                      @"Rachel",
+                                                      @"Seth",
+                                                      @"Timothy",
+                                                      @"Ulga",
+                                                      @"Vanessa",
+                                                      @"William",
+                                                      @"Xao",
+                                                      @"Yilton",
+                                                      @"Zander"];
+                      });
 
         NSString *stringToLookFor;
 		NSArray *componentsString = [prefix componentsSeparatedByString:@","];
@@ -302,7 +300,7 @@ static HTAutocompleteManager *sharedManager;
         {
             stringToLookFor = prefixLastComponent;
         }
-        
+
         for (NSString *stringFromReference in colorAutocompleteArray)
         {
             NSString *stringToCompare;
@@ -317,12 +315,12 @@ static HTAutocompleteManager *sharedManager;
             
             if ([stringToCompare hasPrefix:stringToLookFor])
             {
-                return stringFromReference;
+                return completionHandler([stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""]);
             }
+            
         }
     }
     
-    return @"";
+    return completionHandler(@"");
 }
-
 @end
