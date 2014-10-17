@@ -8,7 +8,7 @@
 
 #import "HTAutocompleteTextField.h"
 
-@interface HTEmailAutocompleteTextField : HTAutocompleteTextField <HTAutocompleteDataSource>
+@interface HTEmailAutocompleteTextField : HTAutocompleteTextField <HTAutocompleteSuggestionDataSource>
 
 /*
  * A list of email domains to suggest

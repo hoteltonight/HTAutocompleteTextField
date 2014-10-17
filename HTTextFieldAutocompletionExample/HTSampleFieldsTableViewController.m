@@ -7,7 +7,7 @@
 //
 
 #import "HTSampleFieldsTableViewController.h"
-#import "HTAutocompleteManager.h"
+#import "HTSampleAutocompleteDataSource.h"
 
 @interface HTSampleFieldsTableViewController ()
 
@@ -18,14 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Set a default data source for all instances.  Otherwise, you can specify the data source on individual text fields via the autocompleteDataSource property
-    [HTAutocompleteTextField setDefaultAutocompleteDataSource:[HTAutocompleteManager sharedManager]];
-    
 
     self.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    self.emailTextField.suggestionLabelExtraPositionOffset = CGPointMake(0, -1);
 
-    self.nameTextField.autocompleteType = HTAutocompleteTypeColor;
+    self.nameTextField.suggestionDataSource = [[HTSampleAutocompleteDataSource alloc] init];
+    self.nameTextField.suggestionLabelExtraPositionOffset = CGPointMake(0, -0.5);
     
     // Dismiss the keyboard when the user taps outside of a text field
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];

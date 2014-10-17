@@ -1,4 +1,0 @@
-language: objective-c
-
-env:
-  - XCODEBUILD_SETTINGS="-sdk iphonesimulator"
