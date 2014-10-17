@@ -139,8 +139,15 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 - (CGRect)autocompleteRectForBounds:(CGRect)bounds
 {
     CGRect returnRect = CGRectZero;
-    CGRect textRect = [self textRectForBounds:self.bounds];
     
+    // get bounds for whole text area
+    CGRect textRectBounds = [self textRectForBounds:self.bounds];
+
+    // get rect for actual text
+    UITextRange *textRange = [self textRangeFromPosition:[self beginningOfDocument]
+                                              toPosition:[self endOfDocument]];
+    CGRect textRect = CGRectIntegral([self firstRectForRange:textRange]);
+
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
     NSLineBreakMode lineBreakMode = NSLineBreakByCharWrapping;
 #else
@@ -153,29 +160,36 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
 
     NSDictionary *attributes = @{NSFontAttributeName: self.font,
                                  NSParagraphStyleAttributeName: paragraphStyle};
-    CGRect prefixTextRect = [self.text boundingRectWithSize:textRect.size
+    CGRect prefixTextRect = [self.text boundingRectWithSize:textRectBounds.size
                                                     options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                  attributes:attributes context:nil];
     CGSize prefixTextSize = prefixTextRect.size;
 
-    CGRect autocompleteTextRect = [self.autocompleteString boundingRectWithSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
+    CGRect autocompleteTextRect = [self.autocompleteString boundingRectWithSize:CGSizeMake(textRectBounds.size.width-prefixTextSize.width, textRectBounds.size.height)
                                                                         options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                                      attributes:attributes context:nil];
     CGSize autocompleteTextSize = autocompleteTextRect.size;
 #else
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
-                                  constrainedToSize:textRect.size
+                                  constrainedToSize:textRectBounds.size
                                       lineBreakMode:lineBreakMode];
 
     CGSize autocompleteTextSize = [self.autocompleteString sizeWithFont:self.font
-                                                      constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
+                                                      constrainedToSize:CGSizeMake(textRectBounds.size.width-prefixTextSize.width, textRectBounds.size.height)
                                                           lineBreakMode:lineBreakMode];
 #endif
     
-    returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
-                            textRect.origin.y + self.autocompleteTextOffset.y,
+    float correction = 0.0f;
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+    {
+        // there is a slightly different return value for firstRectForRange in iOS7
+        correction = 6;
+    }
+    
+    returnRect = CGRectMake(CGRectGetMaxX(textRect) + correction + self.autocompleteTextOffset.x,
+                            CGRectGetMinY(textRectBounds) + self.autocompleteTextOffset.y,
                             autocompleteTextSize.width,
-                            textRect.size.height);
+                            textRectBounds.size.height);
     
     return returnRect;
 }
