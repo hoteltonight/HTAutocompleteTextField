@@ -12,19 +12,17 @@
 
 @class  HTAutocompleteTextField;
 
-@protocol HTAutocompleteDataSource <NSObject>
+@protocol HTAutocompleteSuggestionDataSource <NSObject>
 
-- (NSString*)textField:(HTAutocompleteTextField*)textField
-   completionForPrefix:(NSString*)prefix
-            ignoreCase:(BOOL)ignoreCase;
+- (NSString*)textField:(HTAutocompleteTextField*)textField completionForPrefix:(NSString*)prefix;
 
 @end
 
 @protocol HTAutocompleteTextFieldDelegate <NSObject>
 
 @optional
-- (void)autoCompleteTextFieldDidAutoComplete:(HTAutocompleteTextField *)autoCompleteField;
-- (void)autocompleteTextField:(HTAutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
+- (void)autocompleteTextFieldSuggestionTextWasAccepted:(HTAutocompleteTextField *)autoCompleteField;
+- (void)autocompleteTextField:(HTAutocompleteTextField *)autocompleteTextField didChangeSuggestionText:(NSString *)suggestionText;
 
 @end
 
@@ -36,37 +34,26 @@
 - (id)initWithFrame:(CGRect)frame;
 
 /*
- * Autocomplete behavior
+ * Configure how suggestions are made
  */
-@property (nonatomic, assign) NSUInteger autocompleteType; // Can be used by the dataSource to provide different types of autocomplete behavior
-@property (nonatomic, assign) BOOL autocompleteDisabled;
-@property (nonatomic, assign) BOOL ignoreCase;
-@property (nonatomic, assign) BOOL needsClearButtonSpace;
-@property (nonatomic, assign) BOOL showAutocompleteButton;
-@property (nonatomic, assign) id<HTAutocompleteTextFieldDelegate> autoCompleteTextFieldDelegate;
+@property (nonatomic, assign) BOOL suggestionsDisabled;
+@property (nonatomic, weak) id<HTAutocompleteTextFieldDelegate> autocompleteTextFieldDelegate;
 
 /*
  * Configure text field appearance
  */
-@property (nonatomic, strong) UILabel *autocompleteLabel;
-- (void)setFont:(UIFont *)font;
-@property (nonatomic, assign) CGPoint autocompleteTextOffset;
+@property (nonatomic, strong, readonly) UILabel *suggestionLabel;
+@property (nonatomic, assign) CGPoint suggestionLabelExtraPositionOffset;
 
 /*
  * Specify a data source responsible for determining autocomplete text.
  */
-@property (nonatomic, assign) id<HTAutocompleteDataSource> autocompleteDataSource;
-+ (void)setDefaultAutocompleteDataSource:(id<HTAutocompleteDataSource>)dataSource;
+@property (nonatomic, strong) id<HTAutocompleteSuggestionDataSource> suggestionDataSource;
 
 /*
  * Subclassing:
  */
-- (CGRect)autocompleteRectForBounds:(CGRect)bounds; // Override to alter the position of the autocomplete text
-- (void)setupAutocompleteTextField; // Override to perform setup tasks.  Don't forget to call super.
-
-/*
- * Refresh the autocomplete text manually (useful if you want the text to change while the user isn't editing the text)
- */
-- (void)forceRefreshAutocompleteText;
+- (CGRect)suggestionLabelRectForBounds:(CGRect)bounds; // Override to alter the position of the suggestion text
+- (void)setupAutocompleteTextField; // Override to perform setup tasks.  Don't forget to call super!
 
 @end
