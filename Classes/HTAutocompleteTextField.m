@@ -102,21 +102,25 @@
     UITextRange *textRange = [self textRangeFromPosition:[self beginningOfDocument] toPosition:[self endOfDocument]];
     CGRect textRect = CGRectIntegral([self firstRectForRange:textRange]);
     
-    NSLineBreakMode lineBreakMode = NSLineBreakByCharWrapping;
-
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
-    paragraphStyle.lineBreakMode = lineBreakMode;
-
-    NSDictionary *attributes = @{NSFontAttributeName: self.font,
-                                 NSParagraphStyleAttributeName: paragraphStyle};
+    paragraphStyle.lineBreakMode = self.suggestionLabel.lineBreakMode;
+    
     CGRect prefixTextRect = [self.text boundingRectWithSize:textContainerBounds.size
                                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                                 attributes:attributes context:nil];
+                                                 attributes:@{
+                                                              NSFontAttributeName: self.font,
+                                                              NSParagraphStyleAttributeName: paragraphStyle,
+                                                              }
+                                                    context:nil];
     CGSize prefixTextSize = prefixTextRect.size;
     
     CGRect suggestionTextRect = [self.suggestionString boundingRectWithSize:CGSizeMake(textContainerBounds.size.width - prefixTextSize.width, textContainerBounds.size.height)
                                                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                                                 attributes:attributes context:nil];
+                                                                 attributes:@{
+                                                                              NSFontAttributeName : self.suggestionLabel.font,
+                                                                              NSParagraphStyleAttributeName : paragraphStyle,
+                                                                              }
+                                                                    context:nil];
     CGSize suggestionTextSize = suggestionTextRect.size;
     
     returnRect = CGRectMake(CGRectGetMinX(textContainerBounds) + CGRectGetMaxX(textRect) + self.suggestionLabelExtraPositionOffset.x,
