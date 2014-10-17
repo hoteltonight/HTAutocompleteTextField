@@ -14,8 +14,6 @@ typedef enum {
     HTAutocompleteTypeColor,
 } HTAutocompleteType;
 
-@interface HTAutocompleteManager : NSObject <HTAutocompleteDataSource>
-
-+ (HTAutocompleteManager *)sharedManager;
+@interface HTSampleAutocompleteDataSource : NSObject <HTAutocompleteSuggestionDataSource>
 
 @end
