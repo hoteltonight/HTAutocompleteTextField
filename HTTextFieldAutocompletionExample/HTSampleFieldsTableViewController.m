@@ -20,7 +20,6 @@
     [super viewDidLoad];
 
     self.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
-    self.emailTextField.textAlignment = NSTextAlignmentCenter;
     self.emailTextField.suggestionLabelExtraPositionOffset = CGPointMake(0, -1);
 
     self.nameTextField.suggestionDataSource = [[HTSampleAutocompleteDataSource alloc] init];
