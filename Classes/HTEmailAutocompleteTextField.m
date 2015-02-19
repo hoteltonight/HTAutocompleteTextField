@@ -22,7 +22,7 @@
 
 #pragma mark - HTAutocompleteSuggestionDataSource
 
-- (NSString *)textField:(HTAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
+- (NSString *)textField:(HTAutocompleteTextField * __unused)textField completionForPrefix:(NSString *)prefix
 {
     // Check that text field contains an @
     NSRange atSignRange = [prefix rangeOfString:@"@"];

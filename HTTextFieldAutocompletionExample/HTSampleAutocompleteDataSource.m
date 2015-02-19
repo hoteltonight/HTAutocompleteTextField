@@ -14,7 +14,7 @@ static HTSampleAutocompleteDataSource *sharedManager;
 
 #pragma mark - HTAutocompleteTextFieldDelegate
 
-- (NSString *)textField:(HTAutocompleteTextField *)textField
+- (NSString *)textField:(HTAutocompleteTextField * __unused)textField
     completionForPrefix:(NSString *)prefix
 {
     static BOOL const IgnoreCase = YES;

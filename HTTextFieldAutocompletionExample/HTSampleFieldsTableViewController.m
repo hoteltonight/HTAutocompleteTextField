@@ -30,7 +30,7 @@
     [self.view addGestureRecognizer:singleTap];
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)sender
+- (void)handleSingleTap:(UITapGestureRecognizer * __unused)sender
 {
     [self.emailTextField resignFirstResponder];
     [self.nameTextField resignFirstResponder];

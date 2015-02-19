@@ -94,7 +94,7 @@
 
 #pragma mark - Autocomplete Logic
 
-- (CGRect)suggestionLabelRectForBounds:(CGRect)bounds
+- (CGRect)suggestionLabelRectForBounds:(CGRect __unused)bounds
 {
     CGRect returnRect = CGRectZero;
     CGRect textContainerBounds = [self textRectForBounds:self.bounds];
@@ -106,16 +106,16 @@
     paragraphStyle.lineBreakMode = self.suggestionLabel.lineBreakMode;
     
     CGRect prefixTextRect = [self.text boundingRectWithSize:textContainerBounds.size
-                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                    options:(NSStringDrawingOptions)(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                  attributes:@{
                                                               NSFontAttributeName: self.font,
                                                               NSParagraphStyleAttributeName: paragraphStyle,
                                                               }
                                                     context:nil];
     CGSize prefixTextSize = prefixTextRect.size;
-    
+
     CGRect suggestionTextRect = [self.suggestionString boundingRectWithSize:CGSizeMake(textContainerBounds.size.width - prefixTextSize.width, textContainerBounds.size.height)
-                                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                                    options:(NSStringDrawingOptions)(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                                  attributes:@{
                                                                               NSFontAttributeName : self.suggestionLabel.font,
                                                                               NSParagraphStyleAttributeName : paragraphStyle,
@@ -131,7 +131,7 @@
     return returnRect;
 }
 
-- (void)ht_textDidChangeNotificationFired:(NSNotification*)notification
+- (void)ht_textDidChangeNotificationFired:(NSNotification * __unused)notification
 {
     [self refreshSuggestionText];
 }
