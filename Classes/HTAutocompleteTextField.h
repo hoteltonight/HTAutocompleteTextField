@@ -36,19 +36,19 @@
 /*
  * Configure how suggestions are made
  */
-@property (nonatomic, assign) BOOL suggestionsDisabled;
+@property (nonatomic) BOOL suggestionsDisabled;
 @property (nonatomic, weak) id<HTAutocompleteTextFieldDelegate> autocompleteTextFieldDelegate;
 
 /*
  * Configure text field appearance
  */
-@property (nonatomic, strong, readonly) UILabel *suggestionLabel;
-@property (nonatomic, assign) CGPoint suggestionLabelExtraPositionOffset;
+@property (nonatomic, readonly) UILabel *suggestionLabel;
+@property (nonatomic) CGPoint suggestionLabelExtraPositionOffset;
 
 /*
  * Specify a data source responsible for determining autocomplete text.
  */
-@property (nonatomic, strong) id<HTAutocompleteSuggestionDataSource> suggestionDataSource;
+@property (nonatomic) id<HTAutocompleteSuggestionDataSource> suggestionDataSource;
 
 /*
  * Subclassing:
