@@ -63,7 +63,7 @@
 - (void)setFont:(UIFont *)font {
     [super setFont:font];
 
-    [self.suggestionLabel setFont:font];
+    self.suggestionLabel.font = font;
 }
 
 #pragma mark - UIResponder
@@ -126,9 +126,9 @@
 }
 
 - (void)updateSuggestionLabel {
-    [self.suggestionLabel setText:self.suggestionString];
+    self.suggestionLabel.text = self.suggestionString;
     [self.suggestionLabel sizeToFit];
-    [self.suggestionLabel setFrame:[self suggestionLabelRectForBounds:self.bounds]];
+    self.suggestionLabel.frame = [self suggestionLabelRectForBounds:self.bounds];
 	
 	if ([self.autocompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextField:didChangeSuggestionText:)]) {
         [self.autocompleteTextFieldDelegate autocompleteTextField:self didChangeSuggestionText:self.suggestionString];
@@ -144,7 +144,8 @@
         }
 
         if (dataSource) {
-            self.suggestionString = [dataSource textField:self completionForPrefix:self.text];
+            self.suggestionString = [dataSource textField:self
+                                      completionForPrefix:self.text];
 
             [self updateSuggestionLabel];
         }
