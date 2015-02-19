@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "HTAutocompleteTextField.h"
 #import "HTEmailAutocompleteTextField.h"
 

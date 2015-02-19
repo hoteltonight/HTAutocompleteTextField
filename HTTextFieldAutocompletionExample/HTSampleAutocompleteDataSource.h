@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import "HTAutocompleteTextField.h"
 
 typedef enum {

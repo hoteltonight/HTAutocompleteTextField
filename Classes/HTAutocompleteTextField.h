@@ -8,7 +8,7 @@
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class  HTAutocompleteTextField;
 

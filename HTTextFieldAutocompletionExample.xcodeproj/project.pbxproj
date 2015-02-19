@@ -10,9 +10,6 @@
 		8D86FEEE16E96D4800534BDD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */; };
 		8D9AF2FA19F19FA8003210C8 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AF2F719F19FA8003210C8 /* HTAutocompleteTextField.m */; };
 		8D9AF2FB19F19FA8003210C8 /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AF2F919F19FA8003210C8 /* HTEmailAutocompleteTextField.m */; };
-		8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A804168B7C610025E16D /* UIKit.framework */; };
-		8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A806168B7C610025E16D /* Foundation.framework */; };
-		8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF4A808168B7C610025E16D /* CoreGraphics.framework */; };
 		8DF4A80F168B7C610025E16D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DF4A80D168B7C610025E16D /* InfoPlist.strings */; };
 		8DF4A811168B7C610025E16D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A810168B7C610025E16D /* main.m */; };
 		8DF4A815168B7C610025E16D /* HTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF4A814168B7C610025E16D /* HTAppDelegate.m */; };
@@ -27,16 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		541886FBCF924E768C27BA1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D86FEED16E96D4800534BDD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8D9AF2F619F19FA8003210C8 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
 		8D9AF2F719F19FA8003210C8 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
 		8D9AF2F819F19FA8003210C8 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
 		8D9AF2F919F19FA8003210C8 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
 		8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTextFieldAutocompletionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DF4A804168B7C610025E16D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8DF4A806168B7C610025E16D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8DF4A808168B7C610025E16D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8DF4A80C168B7C610025E16D /* HTTextFieldAutocompletionExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HTTextFieldAutocompletionExample-Info.plist"; sourceTree = "<group>"; };
 		8DF4A80E168B7C610025E16D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF4A810168B7C610025E16D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,9 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DF4A805168B7C610025E16D /* UIKit.framework in Frameworks */,
-				8DF4A807168B7C610025E16D /* Foundation.framework in Frameworks */,
-				8DF4A809168B7C610025E16D /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +75,6 @@
 			children = (
 				8D9AF2F519F19FA8003210C8 /* Classes */,
 				8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */,
-				8DF4A803168B7C610025E16D /* Frameworks */,
 				8DF4A801168B7C610025E16D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,17 +85,6 @@
 				8DF4A800168B7C610025E16D /* HTTextFieldAutocompletionExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8DF4A803168B7C610025E16D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8DF4A804168B7C610025E16D /* UIKit.framework */,
-				8DF4A806168B7C610025E16D /* Foundation.framework */,
-				8DF4A808168B7C610025E16D /* CoreGraphics.framework */,
-				541886FBCF924E768C27BA1C /* libPods.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8DF4A80A168B7C610025E16D /* HTTextFieldAutocompletionExample */ = {
@@ -295,10 +273,11 @@
 		8DF4A828168B7C610025E16D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";
 				INFOPLIST_FILE = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -308,10 +287,11 @@
 		8DF4A829168B7C610025E16D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Prefix.pch";
 				INFOPLIST_FILE = "HTTextFieldAutocompletionExample/HTTextFieldAutocompletionExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
