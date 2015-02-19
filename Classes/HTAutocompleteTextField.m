@@ -11,8 +11,10 @@
 #import "HTAutocompleteTextField.h"
 
 @interface HTAutocompleteTextField ()
-@property (nonatomic, strong) NSString *suggestionString;
-@property (nonatomic, strong, readwrite) UILabel *suggestionLabel;
+
+@property (nonatomic, readwrite) NSString *suggestionString;
+@property (nonatomic, readwrite) UILabel *suggestionLabel;
+
 @end
 
 @implementation HTAutocompleteTextField
@@ -34,7 +36,9 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UITextFieldTextDidChangeNotification
+                                                  object:self];
 }
 
 - (void)setupAutocompleteTextField {
@@ -49,7 +53,10 @@
 
     self.suggestionString = @"";
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ht_textDidChangeNotificationFired:) name:UITextFieldTextDidChangeNotification object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(ht_textDidChangeNotificationFired:)
+                                                 name:UITextFieldTextDidChangeNotification
+                                               object:self];
 }
 
 #pragma mark - Configuration
@@ -86,28 +93,23 @@
 - (CGRect)suggestionLabelRectForBounds:(CGRect __unused)bounds {
     CGRect returnRect = CGRectZero;
     CGRect textContainerBounds = [self textRectForBounds:self.bounds];
-    
-    UITextRange *textRange = [self textRangeFromPosition:[self beginningOfDocument] toPosition:[self endOfDocument]];
+    UITextRange *textRange = [self textRangeFromPosition:self.beginningOfDocument
+                                              toPosition:self.endOfDocument];
     CGRect textRect = CGRectIntegral([self firstRectForRange:textRange]);
-    
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     paragraphStyle.lineBreakMode = self.suggestionLabel.lineBreakMode;
     
     CGRect prefixTextRect = [self.text boundingRectWithSize:textContainerBounds.size
                                                     options:(NSStringDrawingOptions)(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
-                                                 attributes:@{
-                                                              NSFontAttributeName: self.font,
-                                                              NSParagraphStyleAttributeName: paragraphStyle,
-                                                              }
+                                                 attributes:@{NSFontAttributeName:self.font,
+                                                              NSParagraphStyleAttributeName:paragraphStyle}
                                                     context:nil];
     CGSize prefixTextSize = prefixTextRect.size;
 
     CGRect suggestionTextRect = [self.suggestionString boundingRectWithSize:CGSizeMake(textContainerBounds.size.width - prefixTextSize.width, textContainerBounds.size.height)
                                                                     options:(NSStringDrawingOptions)(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
-                                                                 attributes:@{
-                                                                              NSFontAttributeName : self.suggestionLabel.font,
-                                                                              NSParagraphStyleAttributeName : paragraphStyle,
-                                                                              }
+                                                                 attributes:@{NSFontAttributeName:self.suggestionLabel.font,
+                                                                              NSParagraphStyleAttributeName:paragraphStyle}
                                                                     context:nil];
     CGSize suggestionTextSize = suggestionTextRect.size;
     
@@ -165,9 +167,11 @@
             [self.autocompleteTextFieldDelegate autocompleteTextFieldSuggestionTextWasAccepted:self];
 		}
 
-        // We must fire these events manually because programmatic changes to self.text do not do so automatically
+        // We must fire these events manually because programmatic changes to
+        // self.text do not do so automatically
         [self sendActionsForControlEvents:UIControlEventEditingChanged];
-        [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
+                                                            object:self];
     }
 }
 
