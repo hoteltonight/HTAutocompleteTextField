@@ -10,8 +10,7 @@
 
 @implementation HTEmailAutocompleteTextField
 
-- (void)setupAutocompleteTextField
-{
+- (void)setupAutocompleteTextField {
     [super setupAutocompleteTextField];
     
     // Default email domains to suggest
@@ -22,35 +21,29 @@
 
 #pragma mark - HTAutocompleteSuggestionDataSource
 
-- (NSString *)textField:(HTAutocompleteTextField * __unused)textField completionForPrefix:(NSString *)prefix
-{
+- (NSString *)textField:(HTAutocompleteTextField * __unused)textField completionForPrefix:(NSString *)prefix {
     // Check that text field contains an @
     NSRange atSignRange = [prefix rangeOfString:@"@"];
-    if (atSignRange.location == NSNotFound)
-    {
+    if (atSignRange.location == NSNotFound) {
         return @"";
     }
 
     // Stop autocomplete if user types dot after domain
     NSString *domainAndTLD = [prefix substringFromIndex:atSignRange.location];
     NSRange rangeOfDot = [domainAndTLD rangeOfString:@"."];
-    if (rangeOfDot.location != NSNotFound)
-    {
+    if (rangeOfDot.location != NSNotFound) {
         return @"";
     }
 
     // Check that there aren't two @-signs
     NSArray *textComponents = [prefix componentsSeparatedByString:@"@"];
-    if ([textComponents count] > 2)
-    {
+    if ([textComponents count] > 2) {
         return @"";
     }
 
-    if ([textComponents count] > 1)
-    {
+    if ([textComponents count] > 1) {
         // If no domain is entered, use the first domain in the list
-        if ([(NSString *)textComponents[1] length] == 0)
-        {
+        if ([(NSString *)textComponents[1] length] == 0) {
             return self.emailDomains[0];
         }
 
@@ -59,16 +52,13 @@
         NSString *stringToLookFor;
         stringToLookFor = [textAfterAtSign lowercaseString];
 
-        for (NSString *stringFromReference in self.emailDomains)
-        {
+        for (NSString *stringFromReference in self.emailDomains) {
             NSString *stringToCompare;
             stringToCompare = [stringFromReference lowercaseString];
 
-            if ([stringToCompare hasPrefix:stringToLookFor])
-            {
+            if ([stringToCompare hasPrefix:stringToLookFor]) {
                 return [stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""];
             }
-
         }
     }
     

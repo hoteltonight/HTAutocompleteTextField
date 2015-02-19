@@ -17,30 +17,27 @@
 
 @implementation HTAutocompleteTextField
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self)
-    {
+
+    if (self) {
         [self setupAutocompleteTextField];
     }
+
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     
     [self setupAutocompleteTextField];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:self];
 }
 
-- (void)setupAutocompleteTextField
-{
+- (void)setupAutocompleteTextField {
     self.suggestionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.suggestionLabel.font = self.font;
     self.suggestionLabel.backgroundColor = [UIColor clearColor];
@@ -56,22 +53,16 @@
 }
 
 #pragma mark - Configuration
-
-- (void)setFont:(UIFont *)font
-{
+- (void)setFont:(UIFont *)font {
     [super setFont:font];
 
     [self.suggestionLabel setFont:font];
 }
 
 #pragma mark - UIResponder
-
-- (BOOL)becomeFirstResponder
-{
-    if (!self.suggestionsDisabled)
-    {
-        if ([self clearsOnBeginEditing])
-        {
+- (BOOL)becomeFirstResponder {
+    if (!self.suggestionsDisabled) {
+        if ([self clearsOnBeginEditing]) {
             self.suggestionLabel.text = @"";
         }
         
@@ -81,21 +72,18 @@
     return [super becomeFirstResponder];
 }
 
-- (BOOL)resignFirstResponder
-{
-    if (!self.suggestionsDisabled)
-    {
+- (BOOL)resignFirstResponder {
+    if (!self.suggestionsDisabled) {
         self.suggestionLabel.hidden = YES;
 
         [self acceptSuggestionText];
     }
+
     return [super resignFirstResponder];
 }
 
 #pragma mark - Autocomplete Logic
-
-- (CGRect)suggestionLabelRectForBounds:(CGRect __unused)bounds
-{
+- (CGRect)suggestionLabelRectForBounds:(CGRect __unused)bounds {
     CGRect returnRect = CGRectZero;
     CGRect textContainerBounds = [self textRectForBounds:self.bounds];
     
@@ -131,42 +119,34 @@
     return returnRect;
 }
 
-- (void)ht_textDidChangeNotificationFired:(NSNotification * __unused)notification
-{
+- (void)ht_textDidChangeNotificationFired:(NSNotification * __unused)notification {
     [self refreshSuggestionText];
 }
 
-- (void)updateSuggestionLabel
-{
+- (void)updateSuggestionLabel {
     [self.suggestionLabel setText:self.suggestionString];
     [self.suggestionLabel sizeToFit];
     [self.suggestionLabel setFrame:[self suggestionLabelRectForBounds:self.bounds]];
 	
-	if ([self.autocompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextField:didChangeSuggestionText:)])
-    {
+	if ([self.autocompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextField:didChangeSuggestionText:)]) {
         [self.autocompleteTextFieldDelegate autocompleteTextField:self didChangeSuggestionText:self.suggestionString];
 	}
 }
 
-- (void)refreshSuggestionText
-{
-    if (!self.suggestionsDisabled)
-    {
+- (void)refreshSuggestionText {
+    if (!self.suggestionsDisabled) {
         id <HTAutocompleteSuggestionDataSource> dataSource = nil;
         
-        if ([self.suggestionDataSource respondsToSelector:@selector(textField:completionForPrefix:)])
-        {
+        if ([self.suggestionDataSource respondsToSelector:@selector(textField:completionForPrefix:)]) {
             dataSource = (id <HTAutocompleteSuggestionDataSource>)self.suggestionDataSource;
         }
 
-        if (dataSource)
-        {
+        if (dataSource) {
             self.suggestionString = [dataSource textField:self completionForPrefix:self.text];
 
             [self updateSuggestionLabel];
         }
-        else
-        {
+        else {
 #if DEBUG
             NSLog(@"Note: a data source is required for HTAutocompleteTextField to suggest text");
 #endif
@@ -174,10 +154,8 @@
     }
 }
 
-- (void)acceptSuggestionText
-{
-    if (![self.suggestionString isEqualToString:@""] && !self.suggestionsDisabled)
-    {
+- (void)acceptSuggestionText {
+    if (![self.suggestionString isEqualToString:@""] && !self.suggestionsDisabled) {
         self.text = [NSString stringWithFormat:@"%@%@", self.text, self.suggestionString];
         
         self.suggestionString = @"";
