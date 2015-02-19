@@ -15,6 +15,12 @@
 @property (nonatomic, readwrite) NSString *suggestionString;
 @property (nonatomic, readwrite) UILabel *suggestionLabel;
 
+- (CGRect)suggestionLabelRectForBounds:(CGRect)bounds;
+- (void)ht_textDidChangeNotificationFired:(NSNotification *)notification;
+- (void)updateSuggestionLabel;
+- (void)refreshSuggestionText;
+- (void)acceptSuggestionText;
+
 @end
 
 @implementation HTAutocompleteTextField
