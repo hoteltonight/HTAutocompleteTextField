@@ -31,7 +31,7 @@
 /*
  * Designated programmatic initializer (also compatible with Interface Builder)
  */
-- (id)initWithFrame:(CGRect)frame;
+- (instancetype)initWithFrame:(CGRect)frame;
 
 /*
  * Configure how suggestions are made
