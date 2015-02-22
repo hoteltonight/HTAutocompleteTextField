@@ -14,9 +14,7 @@ static HTSampleAutocompleteDataSource *sharedManager;
 
 #pragma mark - HTAutocompleteTextFieldDelegate
 
-- (NSString *)textField:(HTAutocompleteTextField * __unused)textField
-    completionForPrefix:(NSString *)prefix
-{
+- (NSString *)textField:(HTAutocompleteTextField * __unused)textField completionForPrefix:(NSString *)prefix {
     static BOOL const IgnoreCase = YES;
     
     static dispatch_once_t colorOnceToken;
@@ -53,32 +51,25 @@ static HTSampleAutocompleteDataSource *sharedManager;
     NSString *stringToLookFor;
     NSArray *componentsString = [prefix componentsSeparatedByString:@","];
     NSString *prefixLastComponent = [componentsString.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (IgnoreCase)
-    {
+    if (IgnoreCase) {
         stringToLookFor = [prefixLastComponent lowercaseString];
     }
-    else
-    {
+    else {
         stringToLookFor = prefixLastComponent;
     }
     
-    for (NSString *stringFromReference in colorAutocompleteArray)
-    {
+    for (NSString *stringFromReference in colorAutocompleteArray) {
         NSString *stringToCompare;
-        if (IgnoreCase)
-        {
+        if (IgnoreCase) {
             stringToCompare = [stringFromReference lowercaseString];
         }
-        else
-        {
+        else {
             stringToCompare = stringFromReference;
         }
         
-        if ([stringToCompare hasPrefix:stringToLookFor])
-        {
+        if ([stringToCompare hasPrefix:stringToLookFor]) {
             return [stringFromReference stringByReplacingCharactersInRange:[stringToCompare rangeOfString:stringToLookFor] withString:@""];
         }
-        
     }
     
     return @"";

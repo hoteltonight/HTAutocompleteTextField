@@ -12,7 +12,4 @@
 
 @interface HTSampleFieldsTableViewController : UITableViewController <UITextFieldDelegate>
 
-@property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *emailTextField;
-@property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *nameTextField;
-
 @end
