@@ -14,12 +14,12 @@ You can see it in action in the animated gif below or on [Youtube](http://youtu.
 
 ## Installation
 
-### If you're not using Cocoapods (or don't know what Cocoapods is), add the following files to your project:
+### If you're not using CocoaPods (or don't know what CocoaPods is), add the following files to your project:
 * `HTAutocompleteTextField.m`
 * `HTAutocompleteTextField.h`
 * `HTAutocompleteManager.m` and `HTAutocompleteManager.h`
 
-### If you're using Cocoapods:
+### If you're using CocoaPods:
 * Add `pod 'HTAutocompleteTextField'` to your `Podfile`
 * Manually add `HTAutocompleteManager.m` and `HTAutocompleteManager.h` to your project (these files are not part of the pod, as you will probably want to customize them)
 
