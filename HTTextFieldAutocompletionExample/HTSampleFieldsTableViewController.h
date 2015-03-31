@@ -14,5 +14,6 @@
 
 @property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *emailTextField;
 @property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *nameTextField;
-
+@property (unsafe_unretained, nonatomic) IBOutlet HTEmailAutocompleteTextField *asyncEmailTextField;
+@property (unsafe_unretained, nonatomic) IBOutlet HTAutocompleteTextField *asyncNameTextField;
 @end
