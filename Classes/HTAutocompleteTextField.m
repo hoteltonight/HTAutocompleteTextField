@@ -172,10 +172,17 @@ static NSObject<HTAutocompleteDataSource> *DefaultAutocompleteDataSource = nil;
                                                           lineBreakMode:lineBreakMode];
 #endif
     
-    returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
-                            textRect.origin.y + self.autocompleteTextOffset.y,
-                            autocompleteTextSize.width,
-                            textRect.size.height);
+    if (NSTextAlignmentCenter == self.textAlignment) {
+        returnRect = CGRectMake(textRect.origin.x + textRect.size.width/2.0 + prefixTextSize.width/2.0 + self.autocompleteTextOffset.x,
+                                textRect.origin.y + self.autocompleteTextOffset.y,
+                                autocompleteTextSize.width,
+                                textRect.size.height);
+    } else {
+        returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width + self.autocompleteTextOffset.x,
+                                textRect.origin.y + self.autocompleteTextOffset.y,
+                                autocompleteTextSize.width,
+                                textRect.size.height);
+    }
     
     return returnRect;
 }
