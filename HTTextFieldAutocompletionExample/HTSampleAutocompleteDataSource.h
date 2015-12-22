@@ -10,8 +10,8 @@
 #import "HTAutocompleteTextField.h"
 
 typedef enum {
-    HTAutocompleteTypeEmail, // Default
-    HTAutocompleteTypeColor,
+  HTAutocompleteTypeEmail, // Default
+  HTAutocompleteTypeColor,
 } HTAutocompleteType;
 
 @interface HTSampleAutocompleteDataSource : NSObject <HTAutocompleteSuggestionDataSource>
