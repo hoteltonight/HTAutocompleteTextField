@@ -142,44 +142,51 @@
 }
 
 - (void)refreshSuggestionText {
-  if (!self.suggestionsDisabled) {
-    id <HTAutocompleteSuggestionDataSource> dataSource = nil;
-
-    if ([self.suggestionDataSource respondsToSelector:@selector(textField:completionForPrefix:)]) {
-      dataSource = (id <HTAutocompleteSuggestionDataSource>)self.suggestionDataSource;
-    }
-
-    if (dataSource) {
-      self.suggestionString = [dataSource textField:self
-                                completionForPrefix:self.text];
-
-      [self updateSuggestionLabel];
-    }
-    else {
-#if DEBUG
-      NSLog(@"Note: a data source is required for HTAutocompleteTextField to suggest text");
-#endif
-    }
+  if (self.suggestionsDisabled) {
+    return;
   }
+
+
+  id <HTAutocompleteSuggestionDataSource> dataSource;
+
+  if ([self.suggestionDataSource respondsToSelector:@selector(textField:completionForPrefix:)]) {
+    // Bind the weak var to a string var
+    dataSource = (id <HTAutocompleteSuggestionDataSource>)self.suggestionDataSource;
+  }
+
+  if (dataSource) {
+    self.suggestionString = [dataSource textField:self
+                              completionForPrefix:self.text];
+
+    [self updateSuggestionLabel];
+  }
+  else {
+#if DEBUG
+    NSLog(@"Note: a data source is required for HTAutocompleteTextField to suggest text");
+#endif
+  }
+
 }
 
 - (void)acceptSuggestionText {
-  if (![self.suggestionString isEqualToString:@""] && !self.suggestionsDisabled) {
-    self.text = [NSString stringWithFormat:@"%@%@", self.text, self.suggestionString];
-
-    self.suggestionString = @"";
-    [self updateSuggestionLabel];
-
-    if ([self.autocompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextFieldSuggestionTextWasAccepted:)]) {
-      [self.autocompleteTextFieldDelegate autocompleteTextFieldSuggestionTextWasAccepted:self];
-    }
-
-    // We must fire these events manually because programmatic changes to
-    // self.text do not do so automatically
-    [self sendActionsForControlEvents:UIControlEventEditingChanged];
-    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
-                                                        object:self];
+  if ([self.suggestionString isEqualToString:@""] || self.suggestionsDisabled) {
+    return;
   }
+
+  self.text = [NSString stringWithFormat:@"%@%@", self.text, self.suggestionString];
+
+  self.suggestionString = @"";
+  [self updateSuggestionLabel];
+
+  if ([self.autocompleteTextFieldDelegate respondsToSelector:@selector(autocompleteTextFieldSuggestionTextWasAccepted:)]) {
+    [self.autocompleteTextFieldDelegate autocompleteTextFieldSuggestionTextWasAccepted:self];
+  }
+
+  // We must fire these events manually because programmatic changes to
+  // self.text do not do so automatically
+  [self sendActionsForControlEvents:UIControlEventEditingChanged];
+  [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification
+                                                      object:self];
 }
 
 @end
