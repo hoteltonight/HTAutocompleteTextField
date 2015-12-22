@@ -6,14 +6,12 @@
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class HTViewController;
 
 @interface HTAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) HTViewController *viewController;
+@property (nonatomic) UIWindow *window;
 
 @end

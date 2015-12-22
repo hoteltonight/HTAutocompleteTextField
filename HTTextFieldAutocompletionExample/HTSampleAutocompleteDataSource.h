@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Hotel Tonight. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import "HTAutocompleteTextField.h"
 
 typedef enum {
-    HTAutocompleteTypeEmail, // Default
-    HTAutocompleteTypeColor,
+  HTAutocompleteTypeEmail, // Default
+  HTAutocompleteTypeColor,
 } HTAutocompleteType;
 
 @interface HTSampleAutocompleteDataSource : NSObject <HTAutocompleteSuggestionDataSource>
